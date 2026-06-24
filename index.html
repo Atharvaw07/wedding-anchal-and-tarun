@@ -70,31 +70,18 @@
         ============================================================ */
         img.lazy-image {
             opacity: 0;
-            transition: opacity 0.6s ease;
-            background: linear-gradient(
-                90deg,
-                var(--cream-2) 25%,
-                var(--gold-pale) 50%,
-                var(--cream-2) 75%
-            );
-            background-size: 200% 100%;
-            animation: skeletonShimmer 1.6s ease-in-out infinite;
+            transition: opacity 0.5s ease;
+            background: var(--cream-2);
         }
         img.lazy-image.loaded {
             opacity: 1;
-            animation: none;
             background: none;
-        }
-
-        @keyframes skeletonShimmer {
-            0%   { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
         }
 
         /* ============================================================
            TYPOGRAPHY
         ============================================================ */
-        .script { font-family: 'Great Vibes', cursive; font-weight: normal; }
+        .script { font-family: 'Pinyon Script', cursive; font-weight: normal; }
         .serif { font-family: 'Cormorant Garamond', serif; font-weight: 300; }
         .sans { font-family: 'Tenor Sans', sans-serif; font-weight: normal; }
 
@@ -309,10 +296,10 @@
         .couple-block { width: 100%; margin-bottom: 0.25rem; }
 
         .couple-name {
-            font-family: 'Great Vibes', cursive; font-weight: normal;
-            font-size: clamp(3rem,11vw,4.8rem);
-            line-height: 1.1; display: block;
-            letter-spacing: 0.02em; padding: 0.5rem 0;
+            font-family: 'Pinyon Script', cursive; font-weight: normal;
+            font-size: clamp(2.8rem,10vw,4.5rem);
+            line-height: 1.15; display: block;
+            letter-spacing: 0.01em; padding: 0.5rem 0;
         }
 
         .family-line {
@@ -333,7 +320,7 @@
             gap: 1rem; margin: 1.2rem 0; width: 100%;
         }
         .ampersand-line { height: 1px; width: 40px; background: var(--border); }
-        .ampersand { font-family: 'Great Vibes', cursive; font-weight: normal; font-size: 2.2rem; color: var(--gold); line-height: 1; }
+        .ampersand { font-family: 'Pinyon Script', cursive; font-weight: normal; font-size: 2.4rem; color: var(--gold); line-height: 1; }
 
         .card-corner {
             position: absolute; width: 32px; height: 32px;
@@ -380,15 +367,15 @@
 
         .gallery-hero-label {
             font-family: 'Tenor Sans', sans-serif;
-            font-size: 0.75rem; letter-spacing: 0.45em;
+            font-size: 0.65rem; letter-spacing: 0.35em;
             text-transform: uppercase; color: var(--gold-light);
             margin-bottom: 0.75rem; display: block;
             text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
 
         .gallery-hero-name {
-            font-family: 'Great Vibes', cursive; font-weight: normal;
-            font-size: clamp(3.5rem,14vw,9rem); line-height: 1;
+            font-family: 'Pinyon Script', cursive; font-weight: normal;
+            font-size: clamp(3rem,12vw,7rem); line-height: 1.1;
             color: var(--gold-light);
             text-shadow: 0 4px 40px rgba(0,0,0,0.4);
             background: linear-gradient(105deg,#fff 20%,var(--gold-light) 45%,#fff 55%,var(--gold-light) 70%,#fff 85%);
@@ -460,21 +447,21 @@
         }
 
         .ls-heading {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(3.8rem,9vw,8rem); font-weight: 300;
-            text-transform: lowercase; font-variant-ligatures: common-ligatures;
-            color: var(--text-dark); letter-spacing: -0.025em; line-height: 1;
+            font-family: 'Pinyon Script', cursive;
+            font-size: clamp(3.2rem,9vw,5.5rem); font-weight: normal;
+            font-variant-ligatures: common-ligatures;
+            color: var(--terracotta); letter-spacing: 0.01em; line-height: 1.1;
             text-align: center; user-select: none;
             position: absolute; top: clamp(2rem,6vh,4rem); left: 0; right: 0; z-index: 2;
         }
 
         .ls-stack {
-            position: relative; width: min(300px,72vw); height: min(380px,68vh);
+            position: relative; width: min(320px,80vw); height: min(420px,72vh);
             margin-top: clamp(5rem,13vh,9rem); z-index: 3;
         }
         .ls-card {
             position: absolute; inset: 0; background: #ffffff; border-radius: 3px;
-            padding: 10px 10px 48px 10px;
+            padding: 8px; overflow: hidden;
             box-shadow: 0 4px 6px rgba(46,24,16,0.07), 0 12px 40px rgba(46,24,16,0.14), 0 2px 2px rgba(46,24,16,0.04);
             transform: translateY(110vh) rotate(calc(var(--rot) * 2)) scale(0.9);
             transition: transform 1.6s cubic-bezier(0.16,1,0.3,1); will-change: transform;
@@ -486,9 +473,9 @@
         .ls-card:nth-child(5) { --rot:-5.1deg;z-index:5; }
         .ls-card.visible { transform: translateY(0) rotate(var(--rot)) scale(1); }
         .ls-card.stacked { transform: translateY(calc(var(--depth,0) * -3.5px)) rotate(calc(var(--rot) * 0.75)) scale(calc(1 - var(--depth,0) * 0.015)); }
-        .ls-card img { width:100%;height:100%;object-fit:cover;display:block;border-radius:1px; }
+        .ls-card img { position:absolute;top:8px;left:8px;right:8px;bottom:40px;width:calc(100% - 16px);height:calc(100% - 48px);object-fit:cover;display:block;border-radius:1px; }
         .ls-card-caption {
-            position: absolute; bottom: 0; left: 0; right: 0; height: 44px;
+            position: absolute; bottom: 0; left: 0; right: 0; height: 40px;
             display: flex; align-items: center; justify-content: center;
             font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300;
             font-size: 0.75rem; color: #888; letter-spacing: 0.03em;
@@ -533,7 +520,7 @@
         }
         .venue-img { width: 100%; height: 220px; object-fit: cover; display: block; }
         .venue-info { padding: 2rem; }
-        .venue-name { font-family: 'Great Vibes', cursive; font-weight: normal; font-size: 2.6rem; color: var(--terracotta); margin-bottom: 0.25rem; }
+        .venue-name { font-family: 'Pinyon Script', cursive; font-weight: normal; font-size: 2.4rem; color: var(--terracotta); margin-bottom: 0.25rem; }
         .venue-address { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300; font-size: 0.95rem; color: var(--text-mid); line-height: 1.6; margin-bottom: 1.5rem; }
         .venue-map { width: 100%; height: 180px; border: 0; display: block; border-radius: 1rem; margin-top: 1.5rem; }
         .directions-btn {
@@ -543,27 +530,41 @@
             border-radius: 9999px; transition: all 0.25s ease; box-shadow: 0 4px 16px rgba(184,89,64,0.35);
         }
         .directions-btn:hover { background: var(--terra-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(184,89,64,0.4); }
-        .section-heading { font-family: 'Great Vibes', cursive; font-weight: normal; font-size: clamp(3rem,10vw,5rem); line-height: 1.1; }
+        .section-heading { font-family: 'Pinyon Script', cursive; font-weight: normal; font-size: clamp(2.8rem,9vw,4.5rem); line-height: 1.15; }
 
         /* ============================================================
            EVENTS
         ============================================================ */
         #events-section { padding: 5rem 1.5rem; background: var(--cream-2); }
+        .event-day-label {
+            font-family: 'Tenor Sans', sans-serif;
+            font-size: 0.6rem; letter-spacing: 0.4em; text-transform: uppercase;
+            color: var(--gold); text-align: center; margin-bottom: 0.5rem;
+        }
+        .event-day-heading {
+            font-family: 'Pinyon Script', cursive; font-weight: normal;
+            font-size: clamp(2.2rem,7vw,3.2rem); color: var(--terracotta);
+            text-align: center; margin-bottom: 2.5rem; line-height: 1.15;
+        }
         .event-block { max-width: 420px; margin: 0 auto 4rem; }
         .event-subtitle { font-family: 'Tenor Sans', sans-serif; font-size: 1.2rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 1.25rem; }
         .event-video-wrap {
             border-radius: 1.5rem; overflow: hidden; border: 1px solid var(--border);
-            box-shadow: var(--shadow-warm); position: relative; background: #1a0d08;
-            max-height: 250px; transition: max-height 1.4s cubic-bezier(0.25,1,0.5,1);
+            box-shadow: var(--shadow-warm); position: relative; background: #0a0a0a;
+            aspect-ratio: 9 / 16;
         }
-        .event-video-wrap.unlocked { max-height: 1000px; }
-        .event-video-wrap video { width: 100%; height: auto; display: block; }
-        .event-video-wrap::after {
-            content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 120px;
-            background: linear-gradient(to top, rgba(26,13,8,0.7), transparent);
-            pointer-events: none; transition: opacity 1.4s ease;
+        .event-video-wrap video {
+            position: absolute; inset: 0;
+            width: 100%; height: 100%;
+            object-fit: contain;
+            display: block;
         }
-        .event-video-wrap.unlocked::after { opacity: 0; }
+        .event-video-wrap img {
+            position: absolute; inset: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            display: block;
+        }
         .event-sep { display: flex; align-items: center; justify-content: center; gap: 1rem; margin: 2rem auto; max-width: 200px; opacity: 0.5; }
         .event-sep-line { height: 1px; flex: 1; background: var(--gold); }
         .event-sep-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
@@ -724,7 +725,7 @@
         .circle-face {
             width: 60px; height: 60px; border-radius: 50%; border: 1.5px solid var(--border);
             background: var(--cream); display: flex; align-items: center; justify-content: center;
-            font-family: 'Great Vibes', cursive; font-size: 1.5rem; color: var(--terracotta); transition: all 0.25s ease;
+            font-family: 'Pinyon Script', cursive; font-size: 1.5rem; color: var(--terracotta); transition: all 0.25s ease;
         }
         .circle-opt:has(input:checked) .circle-face { background: var(--terracotta); border-color: var(--terracotta); color: white; box-shadow: 0 4px 16px rgba(184,89,64,0.35); }
         .circle-opt-label { font-family: 'Tenor Sans', sans-serif; font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-light); }
@@ -767,7 +768,7 @@
         #footer-section { background: var(--burgundy); padding: 5rem 1.5rem; color: white; }
         .footer-grid { max-width: 680px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 3.5rem; text-align: center; }
         @media (min-width: 640px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
-        .footer-heading { font-family: 'Great Vibes', cursive; font-weight: normal; font-size: 2.6rem; color: var(--gold-light); margin-bottom: 1.25rem; display: block; }
+        .footer-heading { font-family: 'Pinyon Script', cursive; font-weight: normal; font-size: 2.6rem; color: var(--gold-light); margin-bottom: 1.25rem; display: block; }
         .footer-list { list-style: none; font-family: 'Cormorant Garamond', serif; font-weight: 300; font-style: italic; font-size: 1rem; line-height: 2; color: rgba(255,255,255,0.8); }
         .footer-endnote { grid-column: 1/-1; border-top: 1px solid rgba(255,255,255,0.12); padding-top: 2.5rem; text-align: center; }
         .footer-rsvp-names { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 1rem; line-height: 2; color: rgba(255,255,255,0.8); }
@@ -793,7 +794,7 @@
         }
         .modal-icon-ring { width:72px;height:72px;border-radius:50%;background:rgba(184,89,64,0.1);display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem; }
         .modal-icon-ring svg { width:32px;color:var(--terracotta); }
-        .modal-title { font-family:'Great Vibes',cursive;font-weight:normal;font-size:3rem;color:var(--terracotta);margin-bottom:0.5rem; }
+        .modal-title { font-family:'Pinyon Script',cursive;font-weight:normal;font-size:3rem;color:var(--terracotta);margin-bottom:0.5rem; }
         .modal-msg { font-style:italic;font-weight:300;color:var(--text-light);font-size:1rem;line-height:1.6;margin-bottom:1.75rem; }
         .modal-close-btn {
             background:var(--terracotta);color:white;border:none;border-radius:9999px;padding:0.85rem 2.5rem;
@@ -833,7 +834,7 @@
 
     <div id="entry-gate">
         <video id="entry-video" playsinline preload="metadata" muted>
-            <source src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/April/Sowmya%20%26%20Shahank/Entry%20Video%20Best%20Wedding%20Invite%20(29).mp4" type="video/mp4">
+            <source src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/June/Anchal%20%26%20Tarun%20-%208th%20july/2nd/Best%20Entry%20Video%20(53).mp4" type="video/mp4">
         </video>
     </div>
 
@@ -951,7 +952,7 @@
 
         <div id="love-story-section">
             <div class="ls-sticky">
-                <h2 class="ls-heading">Our love story</h2>
+                <h2 class="ls-heading">A Love Written<br>in the Stars</h2>
                 <div class="ls-stack" id="ls-stack">
                     <div class="ls-card" id="ls-c0">
                         <img class="lazy-image"
@@ -1052,18 +1053,16 @@
                 </div>
             </div>
 
+            <div class="reveal text-center" style="margin-bottom:1rem;">
+                <p class="event-day-label">Day 1</p>
+                <p class="event-day-heading">The Festivities Begin</p>
+            </div>
+
             <div class="event-block reveal">
-                <div class="text-center mb-4">
-                    <p class="event-subtitle">HALDI</p>
-                    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--text-mid);font-size:1rem;margin-top:0.5rem;">Sunday, 5th July · 5:15 PM</p>
-                </div>
                 <div class="event-video-wrap">
-                    <video class="lazy-video" muted loop playsinline preload="none" autoplay>
-                        <source data-src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/April/Sowmya%20%26%20Shahank/183.mp4" type="video/mp4">
-                    </video>
+                    <img src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/June/Anchal%20%26%20Tarun%20-%208th%20july/2nd/328.png" alt="Haldi" loading="lazy">
                 </div>
                 <div class="event-info-card">
-                    <p class="event-info-quote">Let the haldi glow begin!</p>
                     <p class="event-dress-label">Dress Code</p>
                     <div class="event-color-swatches">
                         <div class="event-color-swatch">
@@ -1083,18 +1082,16 @@
             </div>
             <div class="event-sep reveal"><div class="event-sep-line"></div><div class="event-sep-dot"></div><div class="event-sep-line"></div></div>
 
+            <div class="reveal text-center" style="margin-bottom:1rem;">
+                <p class="event-day-label">Day 2</p>
+                <p class="event-day-heading">Sacred Rituals</p>
+            </div>
+
             <div class="event-block reveal">
-                <div class="text-center mb-4">
-                    <p class="event-subtitle">BAAN</p>
-                    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--text-mid);font-size:1rem;margin-top:0.5rem;">Monday, 6th July · 10:15 AM</p>
-                </div>
                 <div class="event-video-wrap">
-                    <video class="lazy-video" muted loop playsinline preload="none" autoplay>
-                        <source data-src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/April/Sowmya%20%26%20Shahank/184.mp4" type="video/mp4">
-                    </video>
+                    <img src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/June/Anchal%20%26%20Tarun%20-%208th%20july/2nd/329.png" alt="Baan" loading="lazy">
                 </div>
                 <div class="event-info-card">
-                    <p class="event-info-quote">Sacred threads, sacred vows.</p>
                     <p class="event-dress-label">Dress Code</p>
                     <div class="event-color-swatches">
                         <div class="event-color-swatch">
@@ -1123,17 +1120,10 @@
             <div class="event-sep reveal"><div class="event-sep-line"></div><div class="event-sep-dot"></div><div class="event-sep-line"></div></div>
 
             <div class="event-block reveal">
-                <div class="text-center mb-4">
-                    <p class="event-subtitle">BHAT</p>
-                    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--text-mid);font-size:1rem;margin-top:0.5rem;">Monday, 6th July · 4:15 PM</p>
-                </div>
                 <div class="event-video-wrap">
-                    <video class="lazy-video" muted loop playsinline preload="none" autoplay>
-                        <source data-src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/April/Sowmya%20%26%20Shahank/185.mp4" type="video/mp4">
-                    </video>
+                    <img src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/June/Anchal%20%26%20Tarun%20-%208th%20july/2nd/330.png" alt="Bhat" loading="lazy">
                 </div>
                 <div class="event-info-card">
-                    <p class="event-info-quote">Blessings from home, love for the road.</p>
                     <p class="event-dress-label">Dress Code</p>
                     <div class="event-color-swatches">
                         <div class="event-color-swatch">
@@ -1162,17 +1152,10 @@
             <div class="event-sep reveal"><div class="event-sep-line"></div><div class="event-sep-dot"></div><div class="event-sep-line"></div></div>
 
             <div class="event-block reveal">
-                <div class="text-center mb-4">
-                    <p class="event-subtitle">COCKTAIL</p>
-                    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--text-mid);font-size:1rem;margin-top:0.5rem;">Monday, 6th July · 9:00 PM</p>
-                </div>
                 <div class="event-video-wrap">
-                    <video class="lazy-video" muted loop playsinline preload="none" autoplay>
-                        <source data-src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/April/Sowmya%20%26%20Shahank/186.mp4" type="video/mp4">
-                    </video>
+                    <img src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/June/Anchal%20%26%20Tarun%20-%208th%20july/2nd/331.png" alt="Cocktail" loading="lazy">
                 </div>
                 <div class="event-info-card">
-                    <p class="event-info-quote">Sip, sway, and celebrate!</p>
                     <p class="event-dress-label">Dress Code</p>
                     <div class="event-color-swatches">
                         <div class="event-color-swatch">
@@ -1192,18 +1175,16 @@
             </div>
             <div class="event-sep reveal"><div class="event-sep-line"></div><div class="event-sep-dot"></div><div class="event-sep-line"></div></div>
 
+            <div class="reveal text-center" style="margin-bottom:1rem;">
+                <p class="event-day-label">Day 3</p>
+                <p class="event-day-heading">Night of Celebration</p>
+            </div>
+
             <div class="event-block reveal">
-                <div class="text-center mb-4">
-                    <p class="event-subtitle">SANGEET</p>
-                    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--text-mid);font-size:1rem;margin-top:0.5rem;">Tuesday, 7th July · 7:00 PM Onwards</p>
-                </div>
                 <div class="event-video-wrap">
-                    <video class="lazy-video" muted loop playsinline preload="none" autoplay>
-                        <source data-src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/April/Sowmya%20%26%20Shahank/Event%20-%20BWI%20(17).mp4" type="video/mp4">
-                    </video>
+                    <img src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/June/Anchal%20%26%20Tarun%20-%208th%20july/2nd/332.png" alt="Sangeet" loading="lazy">
                 </div>
                 <div class="event-info-card">
-                    <p class="event-info-quote">Get ready to shake a leg and sing your heart out!</p>
                     <p class="event-dress-label">Dress Code</p>
                     <div class="event-color-swatches">
                         <div class="event-color-swatch">
@@ -1231,18 +1212,18 @@
             </div>
             <div class="event-sep reveal"><div class="event-sep-line"></div><div class="event-sep-dot"></div><div class="event-sep-line"></div></div>
 
+            <div class="reveal text-center" style="margin-bottom:1rem;">
+                <p class="event-day-label">8th July</p>
+                <p class="event-day-heading" style="font-size:clamp(2.6rem,8vw,3.8rem);">The Wedding Day</p>
+            </div>
+
             <div class="event-block reveal">
-                <div class="text-center mb-4">
-                    <p class="event-subtitle">CARNIVAL</p>
-                    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--text-mid);font-size:1rem;margin-top:0.5rem;">Wednesday, 8th July · 11:00 AM Onwards</p>
-                </div>
                 <div class="event-video-wrap">
-                    <video class="lazy-video" muted loop playsinline preload="none" autoplay>
-                        <source data-src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/April/Sowmya%20%26%20Shahank/%40nd/Event%20-%20BWI%20(19).mp4" type="video/mp4">
+                    <video class="lazy-video" muted loop playsinline preload="none" id="video-carnival">
+                        <source data-src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/June/Anchal%20%26%20Tarun%20-%208th%20july/2nd/Best%20Event%20cards%20%20(9).mp4" type="video/mp4">
                     </video>
                 </div>
                 <div class="event-info-card">
-                    <p class="event-info-quote">A celebration of love, life &amp; togetherness!</p>
                     <p class="event-dress-label">Dress Code</p>
                     <div class="event-color-swatches">
                         <div class="event-color-swatch">
@@ -1271,18 +1252,12 @@
             <div class="event-sep reveal"><div class="event-sep-line"></div><div class="event-sep-dot"></div><div class="event-sep-line"></div></div>
 
             <div class="event-block reveal">
-                <div class="text-center mb-4">
-                    <p class="event-subtitle">WEDDING CEREMONY</p>
-                    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--text-mid);font-size:0.9rem;margin-top:0.35rem;">Reception of Baraat</p>
-                    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--text-mid);font-size:1rem;margin-top:0.5rem;">Wednesday, 8th July · 8:00 PM</p>
-                </div>
                 <div class="event-video-wrap">
-                    <video class="lazy-video" muted loop playsinline preload="none" autoplay>
-                        <source data-src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/April/Sowmya%20%26%20Shahank/Event%20-%20BWI%20(17).mp4" type="video/mp4">
+                    <video class="lazy-video" muted loop playsinline preload="none" id="video-wedding">
+                        <source data-src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/June/Anchal%20%26%20Tarun%20-%208th%20july/2nd/Best%20Event%20cards%20%20(10).mp4" type="video/mp4">
                     </video>
                 </div>
                 <div class="event-info-card">
-                    <p class="event-info-quote">Two hearts, one forever.</p>
                     <p class="event-dress-label">Dress Code</p>
                     <div class="event-color-swatches">
                         <div class="event-color-swatch">
@@ -1449,7 +1424,7 @@
 
         <section id="footer-section">
             <div style="text-align:center;margin-bottom:3rem;" class="reveal">
-                <span style="font-family:'Great Vibes',cursive;font-size:4rem;color:var(--gold-light);display:block;line-height:1.1;">
+                <span style="font-family:'Pinyon Script',cursive;font-size:4rem;color:var(--gold-light);display:block;line-height:1.1;">
                     Anchal & Tarun
                 </span>
                 <div style="display:flex;align-items:center;justify-content:center;gap:1rem;margin-top:1rem;opacity:0.4;">
@@ -1588,65 +1563,85 @@
        Order: images first (small, fast), then videos, then iframes.
     ================================================================ */
 
-    function getAllLazyAssets() {
-        const assets = [];
-        // Collect in DOM order so page-top assets load first
-        document.querySelectorAll('img.lazy-image[data-src]').forEach(img => {
-            assets.push({ type: 'image', el: img });
-        });
-        document.querySelectorAll('video.lazy-video').forEach(video => {
-            const source = video.querySelector('source[data-src]');
-            if (source) assets.push({ type: 'video', el: video, source });
-        });
-        document.querySelectorAll('iframe[data-src]').forEach(iframe => {
-            assets.push({ type: 'iframe', el: iframe });
-        });
-        return assets;
+    // ---- Immediate image loader (no blocking) ----
+    function loadImg(img) {
+        if (!img.dataset.src || img._loading) return;
+        img._loading = true;
+        const src = img.dataset.src;
+        delete img.dataset.src;
+        const tmp = new Image();
+        tmp.onload = () => { img.src = src; img.classList.add('loaded'); };
+        tmp.onerror = () => { img.src = src; img.classList.add('loaded'); };
+        tmp.src = src;
     }
 
-    function loadImageAsset(img) {
-        return new Promise(resolve => {
-            if (!img.dataset.src) return resolve();
-            img.onload  = () => { img.classList.add('loaded'); resolve(); };
-            img.onerror = () => { img.classList.add('loaded'); resolve(); };
-            img.src = img.dataset.src;
-            delete img.dataset.src;
-        });
+    function loadVideo(video) {
+        if (video._loading) return;
+        video._loading = true;
+        const source = video.querySelector('source[data-src]');
+        if (!source) return;
+        const src = source.dataset.src;
+        source.removeAttribute('data-src');
+        source.src = src;
+        video.load();
+        // Show first frame as soon as metadata is ready — no blank screen
+        video.addEventListener('loadedmetadata', () => {
+            video.currentTime = 0.001;
+        }, { once: true });
+        const tryPlay = () => video.play().catch(() => {});
+        video.addEventListener('canplay', tryPlay, { once: true });
+        setTimeout(tryPlay, 3000);
     }
 
-    function loadVideoAsset(video, source) {
-        return new Promise(resolve => {
-            if (!source.dataset.src) return resolve();
-            source.src = source.dataset.src;
-            delete source.dataset.src;
-            video.load();
-            if (video.hasAttribute('autoplay')) video.play().catch(() => {});
-            // Resolve on canplay or after 4s — don't block the queue on slow videos
-            const done = () => resolve();
-            video.addEventListener('canplay', done, { once: true });
-            setTimeout(done, 4000);
-        });
-    }
-
-    function loadIframeAsset(iframe) {
-        if (!iframe.dataset.src) return Promise.resolve();
+    function loadIframe(iframe) {
+        if (!iframe.dataset.src || iframe._loading) return;
+        iframe._loading = true;
         iframe.src = iframe.dataset.src;
         delete iframe.dataset.src;
-        return Promise.resolve();
     }
 
-    async function runSequentialPreload() {
-        const assets = getAllLazyAssets();
-        for (const asset of assets) {
-            try {
-                if      (asset.type === 'image')  await loadImageAsset(asset.el);
-                else if (asset.type === 'video')  await loadVideoAsset(asset.el, asset.source);
-                else if (asset.type === 'iframe') await loadIframeAsset(asset.el);
-            } catch (_) { /* never let one failure block the rest */ }
-        }
+    // IntersectionObserver — fires as soon as element nears viewport
+    const imgObserver = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { loadImg(e.target); imgObserver.unobserve(e.target); } });
+    }, { rootMargin: '200px' });
+
+    const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                videoObserver.unobserve(e.target);
+                loadVideo(e.target);
+            }
+        });
+    }, { rootMargin: '400px' });
+
+    const iframeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { loadIframe(e.target); iframeObserver.unobserve(e.target); } });
+    }, { rootMargin: '100px' });
+
+    function runPreload() {
+        // All lazy images: observe + fire first-batch immediately in parallel
+        const imgs = [...document.querySelectorAll('img.lazy-image[data-src]')];
+        imgs.forEach(img => { imgObserver.observe(img); });
+        // Fire first 6 immediately (above fold + polaroids)
+        imgs.slice(0, 6).forEach(img => loadImg(img));
+        // Event videos — load both immediately in background, don't wait for scroll
+        // Carnival first, wedding 1.5s later so they don't saturate bandwidth together
+        const carnival = document.getElementById('video-carnival');
+        const wedding  = document.getElementById('video-wedding');
+        if (carnival) loadVideo(carnival);
+        if (wedding)  setTimeout(() => loadVideo(wedding), 1500);
+        // Also observe any other lazy-videos (fallback)
+        document.querySelectorAll('video.lazy-video').forEach(v => {
+            if (v.id !== 'video-carnival' && v.id !== 'video-wedding') videoObserver.observe(v);
+        });
+        // Iframes
+        document.querySelectorAll('iframe[data-src]').forEach(f => iframeObserver.observe(f));
+        // After 1s load remaining images in parallel (background, non-blocking)
+        setTimeout(() => { imgs.slice(6).forEach(img => loadImg(img)); }, 800);
     }
 
-    // These are now no-ops — preloading is handled by runSequentialPreload()
+    // Aliases kept for compat
+    function runSequentialPreload() { runPreload(); }
     function observeLazyImages()  {}
     function observeLazyVideos()  {}
     function observeLazyIframes() {}
@@ -1765,7 +1760,7 @@
         function tick() {
             const diff = target - Date.now();
             if (diff <= 0) {
-                grid.innerHTML = "<p style='grid-column:1/-1;font-family:\"Great Vibes\",cursive;font-size:3rem;color:var(--terracotta);'>We're Married!</p>";
+                grid.innerHTML = "<p style='grid-column:1/-1;font-family:\"Pinyon Script\",cursive;font-size:3rem;color:var(--terracotta);'>We're Married!</p>";
                 return;
             }
             const fmt = n => String(n).padStart(2,'0');
