@@ -1,0 +1,2037 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Anchal & Dr. Tarun — A Sacred Union</title>
+    <link rel="icon" type="image/x-icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💕</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Tenor+Sans&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* ============================================================
+           DESIGN SYSTEM — Terracotta Gold Luxury
+        ============================================================ */
+        :root {
+            --cream: #FFF8F3;
+            --cream-2: #FDF0E8;
+            --terracotta: #B85940;
+            --terra-dark: #8B3E28;
+            --terra-light: #D4806A;
+            --gold: #C9963E;
+            --gold-light: #E8C07A;
+            --gold-pale: #F5E4C0;
+            --burgundy: #5C2233;
+            --text-dark: #2E1810;
+            --text-mid: #6B4535;
+            --text-light: #9E7060;
+            --border: #EEDDD3;
+            --white: #FFFFFF;
+            --shadow-warm: 0 20px 60px -10px rgba(92, 34, 51, 0.12);
+            --shadow-gold: 0 4px 24px rgba(201, 150, 62, 0.18);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html { scroll-behavior: smooth; }
+
+         body {
+            background-color: var(--cream);
+            color: var(--text-dark);
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-weight: 300;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        /* ============================================================
+           GLOBAL RESPONSIVE IMAGE RULE
+        ============================================================ */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* ============================================================
+           LAZY MEDIA — skeleton shimmer placeholder state
+        ============================================================ */
+        img.lazy-image {
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            background: linear-gradient(
+                90deg,
+                var(--cream-2) 25%,
+                var(--gold-pale) 50%,
+                var(--cream-2) 75%
+            );
+            background-size: 200% 100%;
+            animation: skeletonShimmer 1.6s ease-in-out infinite;
+        }
+        img.lazy-image.loaded {
+            opacity: 1;
+            animation: none;
+            background: none;
+        }
+
+        @keyframes skeletonShimmer {
+            0%   { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* ============================================================
+           TYPOGRAPHY
+        ============================================================ */
+        .script { font-family: 'Great Vibes', cursive; font-weight: normal; }
+        .serif { font-family: 'Cormorant Garamond', serif; font-weight: 300; }
+        .sans { font-family: 'Tenor Sans', sans-serif; font-weight: normal; }
+
+        .shimmer-gold {
+            background: linear-gradient(105deg,
+                    var(--terra-dark) 20%,
+                    var(--gold) 40%,
+                    var(--gold-light) 50%,
+                    var(--gold) 60%,
+                    var(--terra-dark) 80%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 4s linear infinite;
+        }
+
+        @keyframes shimmer { to { background-position: 200% center; } }
+
+        .text-terra { color: var(--terracotta); }
+        .text-gold { color: var(--gold); }
+        .text-burg { color: var(--burgundy); }
+        .text-mid { color: var(--text-mid); }
+        .text-light2 { color: var(--text-light); }
+
+        /* ============================================================
+           FLOATING PETALS
+        ============================================================ */
+        #petals-canvas {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 1.5s ease;
+        }
+        #petals-canvas.active { opacity: 1; }
+
+        .insta-handle {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            color: rgba(255,255,255,0.7);
+            font-family: 'Tenor Sans', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+        .insta-handle:hover { color: white; }
+
+        /* ============================================================
+           SCROLL REVEAL
+        ============================================================ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+        }
+        .reveal.revealed { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.35s; }
+
+        /* ============================================================
+           ENTRY VIDEO GATE
+        ============================================================ */
+        #entry-gate {
+            position: fixed;
+            inset: 0;
+            background: #0a0505;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: opacity 0.8s ease;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        #entry-gate video {
+            position: absolute;
+            inset: 0; width: 100%; height: 100%;
+            object-fit: cover;
+        }
+
+        #entry-gate.fade-out { opacity: 0; pointer-events: none; }
+
+        /* ============================================================
+           AUDIO TOGGLE
+        ============================================================ */
+        #audio-btn {
+            position: fixed;
+            bottom: 1.5rem; right: 1.5rem;
+            width: 52px; height: 52px;
+            border-radius: 50%;
+            background: var(--terracotta);
+            border: 2px solid rgba(255,255,255,0.25);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 900;
+            box-shadow: 0 4px 20px rgba(184,89,64,0.4);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        #audio-btn:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(184,89,64,0.5); }
+        #audio-btn svg { width: 22px; height: 22px; }
+
+        /* ============================================================
+           ORNAMENTS & LABELS
+        ============================================================ */
+        .ornament {
+            display: flex; align-items: center; justify-content: center;
+            gap: 1rem; margin: 0 auto;
+        }
+        .ornament-line { height: 1px; width: 80px; background: linear-gradient(to right, transparent, var(--gold)); }
+        .ornament-line.rev { background: linear-gradient(to left, transparent, var(--gold)); }
+        .ornament svg { color: var(--gold); flex-shrink: 0; }
+
+        .section-label {
+            font-family: 'Tenor Sans', sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: var(--gold);
+            display: block;
+            margin-bottom: 0.75rem;
+        }
+
+        /* ============================================================
+           MAIN CONTENT
+        ============================================================ */
+        #main-content { display: none; }
+        #main-content.visible { display: block; }
+
+        /* ============================================================
+           HERO SECTION
+        ============================================================ */
+        #hero {
+            position: relative;
+            min-height: 100dvh;
+            display: flex; align-items: center; justify-content: center;
+            overflow: hidden;
+            background: var(--cream-2);
+            padding: 3rem 1rem;
+        }
+
+        #hero-bg-video {
+            position: absolute;
+            inset: 0; width: 100%; height: 100%;
+            object-fit: cover;
+            object-position: top;
+            opacity: 0.22;
+            z-index: 0;
+        }
+
+        .hero-frame { position: absolute; inset: 1.25rem; pointer-events: none; z-index: 2; }
+        .hero-frame::before, .hero-frame::after,
+        .hero-frame span::before, .hero-frame span::after {
+            content: ''; position: absolute; width: 60px; height: 60px;
+            border-color: var(--gold); border-style: solid; opacity: 0.5;
+        }
+        .hero-frame::before { top: 0; left: 0; border-width: 1px 0 0 1px; }
+        .hero-frame::after { top: 0; right: 0; border-width: 1px 1px 0 0; }
+        .hero-frame span::before { bottom: 0; left: 0; border-width: 0 0 1px 1px; }
+        .hero-frame span::after { bottom: 0; right: 0; border-width: 0 1px 1px 0; }
+
+        .hero-card {
+            position: relative; z-index: 3;
+            max-width: 540px; width: 100%;
+            background: rgba(255,255,255,0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(201,150,62,0.2);
+            border-radius: 2rem;
+            padding: clamp(2rem,5vw,3rem) clamp(1rem,4vw,2.5rem);
+            box-shadow: var(--shadow-warm), 0 0 0 1px rgba(255,255,255,0.6) inset;
+            text-align: center;
+            animation: heroCardIn 1.6s ease-out both;
+            animation-delay: 0.2s;
+            display: flex; flex-direction: column; align-items: center;
+        }
+
+        @keyframes heroCardIn {
+            from { opacity: 0; transform: scale(0.96) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .ganesh-icon {
+            height: 60px; width: auto; object-fit: contain;
+            margin: 0 auto 0.75rem;
+            animation: floatIcon 4s ease-in-out infinite;
+        }
+
+        @keyframes floatIcon {
+            0%,100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+
+        .blessings-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic; font-weight: 300; font-size: 1.05rem;
+            color: var(--text-mid); line-height: 1.5;
+            margin-bottom: 1.5rem; padding: 0 1rem;
+        }
+
+        .couple-block { width: 100%; margin-bottom: 0.25rem; }
+
+        .couple-name {
+            font-family: 'Great Vibes', cursive; font-weight: normal;
+            font-size: clamp(3rem,11vw,4.8rem);
+            line-height: 1.1; display: block;
+            letter-spacing: 0.02em; padding: 0.5rem 0;
+        }
+
+        .family-line {
+            font-family: 'Tenor Sans', sans-serif;
+            font-size: 0.65rem; letter-spacing: 0.15em;
+            text-transform: uppercase; color: var(--text-mid);
+            margin-top: 0.5rem; line-height: 1.5;
+        }
+
+        .family-subline {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic; font-size: 0.95rem;
+            color: var(--terracotta); margin-top: 0.2rem;
+        }
+
+        .ampersand-wrap {
+            display: flex; align-items: center; justify-content: center;
+            gap: 1rem; margin: 1.2rem 0; width: 100%;
+        }
+        .ampersand-line { height: 1px; width: 40px; background: var(--border); }
+        .ampersand { font-family: 'Great Vibes', cursive; font-weight: normal; font-size: 2.2rem; color: var(--gold); line-height: 1; }
+
+        .card-corner {
+            position: absolute; width: 32px; height: 32px;
+            border-color: rgba(201,150,62,0.35); border-style: solid;
+        }
+        .card-corner.tl { top:16px;left:16px;border-width:1px 0 0 1px;border-radius:4px 0 0 0; }
+        .card-corner.tr { top:16px;right:16px;border-width:1px 1px 0 0;border-radius:0 4px 0 0; }
+        .card-corner.bl { bottom:16px;left:16px;border-width:0 0 1px 1px;border-radius:0 0 0 4px; }
+        .card-corner.br { bottom:16px;right:16px;border-width:0 1px 1px 0;border-radius:0 0 4px 0; }
+
+        .scroll-cue {
+            position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+            z-index: 5; display: flex; flex-direction: column; align-items: center;
+            gap: 0.4rem; opacity: 0.7; animation: scrollBounce 2s ease infinite;
+        }
+        .scroll-cue p { font-family:'Tenor Sans',sans-serif;font-size:0.6rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--text-mid); }
+        .scroll-cue svg { color: var(--text-mid); width: 18px; }
+
+        @keyframes scrollBounce {
+            0%,100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(8px); }
+        }
+
+        /* ============================================================
+           GSAP SCROLL GALLERY
+        ============================================================ */
+        #gallery-section { position: relative; height: 250vh; background: var(--cream); z-index: 5; }
+
+        .gallery-sticky {
+            position: sticky; top: 0; height: 100dvh; width: 100%;
+            overflow: hidden; display: flex; align-items: center; justify-content: center;
+        }
+
+        .gallery-viewport { position: relative; width: 100%; height: 100%; }
+
+        .gallery-hero-text {
+            position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%; display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            z-index: 20; pointer-events: none; text-align: center; padding: 1rem;
+            background: radial-gradient(circle, rgba(0,0,0,0.45) 0%, transparent 60%);
+        }
+
+        .gallery-hero-label {
+            font-family: 'Tenor Sans', sans-serif;
+            font-size: 0.75rem; letter-spacing: 0.45em;
+            text-transform: uppercase; color: var(--gold-light);
+            margin-bottom: 0.75rem; display: block;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .gallery-hero-name {
+            font-family: 'Great Vibes', cursive; font-weight: normal;
+            font-size: clamp(3.5rem,14vw,9rem); line-height: 1;
+            color: var(--gold-light);
+            text-shadow: 0 4px 40px rgba(0,0,0,0.4);
+            background: linear-gradient(105deg,#fff 20%,var(--gold-light) 45%,#fff 55%,var(--gold-light) 70%,#fff 85%);
+            background-size: 200% auto;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 5s linear infinite;
+            padding-top: 10px;
+        }
+
+        .gallery-card {
+            position: absolute; top: 50%; left: 50%;
+            background: var(--white); border-radius: 1rem; overflow: hidden;
+            box-shadow: 0 20px 60px rgba(92,34,51,0.18), 0 4px 16px rgba(92,34,51,0.08);
+            cursor: zoom-in; will-change: transform, opacity;
+            border: 1px solid rgba(201,150,62,0.2);
+        }
+
+        .gallery-card img {
+            width: 100%; height: 100%; object-fit: cover; display: block;
+            transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+            pointer-events: none; user-select: none;
+        }
+        .gallery-card:hover img { transform: scale(1.06); }
+
+        .gallery-card-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(139,62,40,0.55) 0%, transparent 55%);
+            opacity: 0; transition: opacity 0.35s ease;
+            display: flex; align-items: flex-end; padding: 1.25rem;
+        }
+        .gallery-card:hover .gallery-card-overlay { opacity: 1; }
+
+        .gallery-card-label {
+            font-family: 'Tenor Sans', sans-serif;
+            font-size: 0.6rem; letter-spacing: 0.2em;
+            text-transform: uppercase; color: white;
+        }
+
+        .gallery-lightbox {
+            position: fixed; inset: 0; background: rgba(10,5,5,0.92); z-index: 99999;
+            display: flex; align-items: center; justify-content: center; padding: 1.5rem;
+            cursor: zoom-out; backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+            animation: fadeIn 0.25s ease both;
+        }
+        .gallery-lightbox-inner {
+            position: relative; max-width: 92vw; max-height: 88vh;
+            border-radius: 1rem; overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+        }
+        .gallery-lightbox-inner img { width:100%;height:100%;max-height:88vh;object-fit:contain;display:block; }
+        .gallery-lightbox-close {
+            position: absolute; top: 1rem; right: 1rem;
+            background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);
+            color: white; width: 44px; height: 44px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: all 0.25s ease; z-index: 100000;
+        }
+        .gallery-lightbox-close:hover { background: var(--terracotta); transform: rotate(90deg); }
+        .gallery-lightbox-close svg { width: 18px; height: 18px; }
+
+        /* ============================================================
+           OUR LOVE STORY — Scroll-Stacked Polaroids
+        ============================================================ */
+        #love-story-section { position: relative; }
+        .ls-sticky {
+            position: sticky; top: 0; height: 100vh; overflow: hidden;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            background: var(--cream);
+        }
+
+        .ls-heading {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3.8rem,9vw,8rem); font-weight: 300;
+            text-transform: lowercase; font-variant-ligatures: common-ligatures;
+            color: var(--text-dark); letter-spacing: -0.025em; line-height: 1;
+            text-align: center; user-select: none;
+            position: absolute; top: clamp(2rem,6vh,4rem); left: 0; right: 0; z-index: 2;
+        }
+
+        .ls-stack {
+            position: relative; width: min(300px,72vw); height: min(380px,68vh);
+            margin-top: clamp(5rem,13vh,9rem); z-index: 3;
+        }
+        .ls-card {
+            position: absolute; inset: 0; background: #ffffff; border-radius: 3px;
+            padding: 10px 10px 48px 10px;
+            box-shadow: 0 4px 6px rgba(46,24,16,0.07), 0 12px 40px rgba(46,24,16,0.14), 0 2px 2px rgba(46,24,16,0.04);
+            transform: translateY(110vh) rotate(calc(var(--rot) * 2)) scale(0.9);
+            transition: transform 1.6s cubic-bezier(0.16,1,0.3,1); will-change: transform;
+        }
+        .ls-card:nth-child(1) { --rot:-4.5deg;z-index:1; }
+        .ls-card:nth-child(2) { --rot:5.8deg;z-index:2; }
+        .ls-card:nth-child(3) { --rot:-3.6deg;z-index:3; }
+        .ls-card:nth-child(4) { --rot:6.2deg;z-index:4; }
+        .ls-card:nth-child(5) { --rot:-5.1deg;z-index:5; }
+        .ls-card.visible { transform: translateY(0) rotate(var(--rot)) scale(1); }
+        .ls-card.stacked { transform: translateY(calc(var(--depth,0) * -3.5px)) rotate(calc(var(--rot) * 0.75)) scale(calc(1 - var(--depth,0) * 0.015)); }
+        .ls-card img { width:100%;height:100%;object-fit:cover;display:block;border-radius:1px; }
+        .ls-card-caption {
+            position: absolute; bottom: 0; left: 0; right: 0; height: 44px;
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300;
+            font-size: 0.75rem; color: #888; letter-spacing: 0.03em;
+            pointer-events: none; padding: 0 8px;
+        }
+        .ls-dots { position: absolute; bottom: 2.2rem; left: 50%; transform: translateX(-50%); display: flex; gap: 7px; z-index: 10; }
+        .ls-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--border); transition: background 0.3s, transform 0.3s; }
+        .ls-dot.active { background: var(--terracotta); transform: scale(1.5); }
+        .ls-spacer { height: 75vh; }
+
+        /* ============================================================
+           COUNTDOWN SECTION
+        ============================================================ */
+        #countdown-section { background: var(--cream); padding: 5rem 1.5rem; }
+        .countdown-card {
+            max-width: 440px; margin: 0 auto; background: var(--white);
+            border-radius: 2rem; padding: 3rem 2rem; border: 1px solid var(--border);
+            box-shadow: var(--shadow-warm); text-align: center;
+        }
+        .countdown-quote { font-style: italic; font-weight: 300; font-size: 1.15rem; line-height: 1.6; color: var(--text-mid); margin-bottom: 0.75rem; }
+        .countdown-date { font-family: 'Tenor Sans', sans-serif; font-size: 0.85rem; letter-spacing: 0.2em; color: var(--terracotta); text-transform: uppercase; margin-bottom: 2.5rem; }
+        .countdown-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 0.5rem; }
+        .countdown-unit { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; }
+        .countdown-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.8rem,10vw,3.5rem); font-weight: 300;
+            color: var(--text-dark); line-height: 1; position: relative;
+        }
+        .countdown-number::after {
+            content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+            height: 1px; background: linear-gradient(to right, transparent, var(--gold), transparent);
+        }
+        .countdown-label { font-family: 'Tenor Sans', sans-serif; font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--terracotta); }
+
+        /* ============================================================
+           VENUE SECTION
+        ============================================================ */
+        #venue-section { padding: 5rem 1.5rem; background: var(--cream); }
+        .venue-card {
+            max-width: 560px; margin: 0 auto; background: var(--white);
+            border-radius: 2rem; overflow: hidden; box-shadow: var(--shadow-warm); border: 1px solid var(--border);
+        }
+        .venue-img { width: 100%; height: 220px; object-fit: cover; display: block; }
+        .venue-info { padding: 2rem; }
+        .venue-name { font-family: 'Great Vibes', cursive; font-weight: normal; font-size: 2.6rem; color: var(--terracotta); margin-bottom: 0.25rem; }
+        .venue-address { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300; font-size: 0.95rem; color: var(--text-mid); line-height: 1.6; margin-bottom: 1.5rem; }
+        .venue-map { width: 100%; height: 180px; border: 0; display: block; border-radius: 1rem; margin-top: 1.5rem; }
+        .directions-btn {
+            display: inline-block; margin: 1.5rem auto 0; background: var(--terracotta); color: white;
+            font-family: 'Tenor Sans', sans-serif; font-size: 0.7rem; letter-spacing: 0.25em;
+            text-transform: uppercase; text-decoration: none; padding: 0.9rem 2.5rem;
+            border-radius: 9999px; transition: all 0.25s ease; box-shadow: 0 4px 16px rgba(184,89,64,0.35);
+        }
+        .directions-btn:hover { background: var(--terra-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(184,89,64,0.4); }
+        .section-heading { font-family: 'Great Vibes', cursive; font-weight: normal; font-size: clamp(3rem,10vw,5rem); line-height: 1.1; }
+
+        /* ============================================================
+           EVENTS
+        ============================================================ */
+        #events-section { padding: 5rem 1.5rem; background: var(--cream-2); }
+        .event-block { max-width: 420px; margin: 0 auto 4rem; }
+        .event-subtitle { font-family: 'Tenor Sans', sans-serif; font-size: 1.2rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 1.25rem; }
+        .event-video-wrap {
+            border-radius: 1.5rem; overflow: hidden; border: 1px solid var(--border);
+            box-shadow: var(--shadow-warm); position: relative; background: #1a0d08;
+            max-height: 250px; transition: max-height 1.4s cubic-bezier(0.25,1,0.5,1);
+        }
+        .event-video-wrap.unlocked { max-height: 1000px; }
+        .event-video-wrap video { width: 100%; height: auto; display: block; }
+        .event-video-wrap::after {
+            content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 120px;
+            background: linear-gradient(to top, rgba(26,13,8,0.7), transparent);
+            pointer-events: none; transition: opacity 1.4s ease;
+        }
+        .event-video-wrap.unlocked::after { opacity: 0; }
+        .event-sep { display: flex; align-items: center; justify-content: center; gap: 1rem; margin: 2rem auto; max-width: 200px; opacity: 0.5; }
+        .event-sep-line { height: 1px; flex: 1; background: var(--gold); }
+        .event-sep-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+
+        .event-info-card {
+            background: var(--white);
+            border-radius: 1.25rem;
+            padding: 2rem 1.5rem;
+            margin-top: 1.5rem;
+            box-shadow: 0 8px 32px rgba(92, 34, 51, 0.08);
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+        .event-info-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: var(--text-mid);
+            margin-bottom: 1.5rem;
+            line-height: 1.55;
+        }
+        .event-dress-label {
+            font-family: 'Tenor Sans', sans-serif;
+            font-size: 0.62rem;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+        .event-color-swatches {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .event-color-swatch {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.45rem;
+        }
+        .event-color-dot {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 1px solid rgba(46, 24, 16, 0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        }
+        .event-color-swatch span:last-child {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 0.85rem;
+            color: var(--text-mid);
+        }
+        .event-color-names {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 0.95rem;
+            color: var(--text-mid);
+            margin-bottom: 0.35rem;
+        }
+        .event-dress-desc {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 0.25rem;
+        }
+        .event-info-divider {
+            border: none;
+            border-top: 1px dotted var(--border);
+            margin: 1.25rem 0;
+        }
+        .event-venue-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: var(--text-dark);
+            margin-bottom: 1.25rem;
+            line-height: 1.55;
+        }
+        .event-directions-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: var(--burgundy);
+            color: white;
+            font-family: 'Tenor Sans', sans-serif;
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 0.9rem 2rem;
+            border-radius: 9999px;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 16px rgba(92, 34, 51, 0.25);
+        }
+        .event-directions-btn:hover {
+            background: var(--terra-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(92, 34, 51, 0.3);
+        }
+        .event-directions-btn svg { flex-shrink: 0; }
+
+        /* ============================================================
+           RSVP SECTION
+        ============================================================ */
+        #rsvp-section { padding: 5rem 1.5rem; background: var(--cream); }
+        .rsvp-form { max-width: 520px; margin: 0 auto; }
+        .form-card {
+            background: var(--white); border: 1px solid var(--border); border-radius: 1.5rem;
+            padding: 2rem; margin-bottom: 1.25rem; box-shadow: 0 4px 24px rgba(92,34,51,0.05);
+        }
+        .form-card-title { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.3rem; font-weight: 300; color: var(--terracotta); margin-bottom: 0.35rem; }
+        .form-card-subtitle { font-size: 0.9rem; color: var(--text-light); margin-bottom: 1.25rem; }
+        .field-label { font-family: 'Tenor Sans', sans-serif; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-light); display: block; margin-bottom: 0.4rem; }
+        .field-input {
+            width: 100%; background: var(--cream); border: 0; border-bottom: 1.5px solid var(--border);
+            padding: 0.6rem 0.25rem; font-family: 'Cormorant Garamond', serif; font-size: 1.05rem;
+            font-weight: 300; color: var(--text-dark); outline: none; transition: border-color 0.2s ease;
+        }
+        .field-input:focus { border-color: var(--terracotta); }
+        select.field-input {
+            appearance: none; -webkit-appearance: none;
+            background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23B85940' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat; background-position: right 0.5rem center;
+            background-size: 12px; padding-right: 2rem; cursor: pointer;
+        }
+        .field-group { margin-bottom: 1.25rem; }
+        .radio-pill {
+            display: inline-flex; flex: 1; align-items: center; justify-content: center;
+            padding: 0.75rem 1.25rem; border: 1.5px solid var(--border); border-radius: 9999px;
+            cursor: pointer; font-family: 'Tenor Sans', sans-serif; font-size: 0.65rem;
+            letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-mid);
+            transition: all 0.25s ease; text-align: center;
+        }
+        .radio-pill input[type="radio"] { display: none; }
+        .radio-pill.selected, .radio-pill:has(input:checked) { background: var(--terracotta); border-color: var(--terracotta); color: white; }
+        .radio-pill-row { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+        .checkbox-pill {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0.85rem 1.25rem; border: 1.5px solid var(--border); border-radius: 0.75rem;
+            cursor: pointer; transition: all 0.25s ease;
+            font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--text-mid); text-align: left;
+        }
+        .checkbox-pill input[type="checkbox"] { display: none; }
+        .checkbox-pill:has(input:checked) { background: var(--terracotta); border-color: var(--terracotta); color: white; }
+        .checkbox-pill:has(input:checked) small { color: rgba(255,255,255,0.85); }
+        .checkbox-row { display: flex; flex-direction: column; gap: 0.6rem; }
+        .checkbox-date { font-family: 'Tenor Sans', sans-serif; font-size: 0.65rem; letter-spacing: 0.1em; opacity: 0.7; display: block; margin-top: 0.2rem; transition: color 0.25s ease; }
+
+        .circle-select { display: flex; gap: 1.5rem; justify-content: center; }
+        .circle-opt { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; cursor: pointer; }
+        .circle-opt input { display: none; }
+        .circle-face {
+            width: 60px; height: 60px; border-radius: 50%; border: 1.5px solid var(--border);
+            background: var(--cream); display: flex; align-items: center; justify-content: center;
+            font-family: 'Great Vibes', cursive; font-size: 1.5rem; color: var(--terracotta); transition: all 0.25s ease;
+        }
+        .circle-opt:has(input:checked) .circle-face { background: var(--terracotta); border-color: var(--terracotta); color: white; box-shadow: 0 4px 16px rgba(184,89,64,0.35); }
+        .circle-opt-label { font-family: 'Tenor Sans', sans-serif; font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-light); }
+
+        .mood-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+        .mood-opt {
+            cursor: pointer; border: 1.5px solid var(--border); border-radius: 0.75rem;
+            padding: 1rem 0.75rem; text-align: center;
+            font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; color: var(--text-mid); transition: all 0.25s ease;
+        }
+        .mood-opt input { display: none; }
+        .mood-opt:has(input:checked) { background: var(--terracotta); border-color: var(--terracotta); color: white; }
+
+        .text-area {
+            width: 100%; background: var(--cream); border: 1px solid var(--border); border-radius: 0.75rem;
+            padding: 0.85rem 1rem; font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 300;
+            color: var(--text-dark); outline: none; resize: none; transition: border-color 0.2s ease; line-height: 1.5;
+        }
+        .text-area:focus { border-color: var(--terracotta); }
+
+        .submit-btn {
+            width: 100%; background: var(--terracotta); color: white; border: none;
+            border-radius: 9999px; padding: 1.1rem;
+            font-family: 'Tenor Sans', sans-serif; font-size: 0.72rem; letter-spacing: 0.25em;
+            text-transform: uppercase; cursor: pointer; transition: all 0.3s ease;
+            box-shadow: 0 6px 24px rgba(184,89,64,0.35); position: relative; overflow: hidden;
+        }
+        .submit-btn::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.15), transparent);
+            transform: translateX(-100%); transition: transform 0.5s ease;
+        }
+        .submit-btn:hover::after { transform: translateX(100%); }
+        .submit-btn:hover { background: var(--terra-dark); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(184,89,64,0.45); }
+        .submit-btn:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
+
+        /* ============================================================
+           FOOTER
+        ============================================================ */
+        #footer-section { background: var(--burgundy); padding: 5rem 1.5rem; color: white; }
+        .footer-grid { max-width: 680px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 3.5rem; text-align: center; }
+        @media (min-width: 640px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+        .footer-heading { font-family: 'Great Vibes', cursive; font-weight: normal; font-size: 2.6rem; color: var(--gold-light); margin-bottom: 1.25rem; display: block; }
+        .footer-list { list-style: none; font-family: 'Cormorant Garamond', serif; font-weight: 300; font-style: italic; font-size: 1rem; line-height: 2; color: rgba(255,255,255,0.8); }
+        .footer-endnote { grid-column: 1/-1; border-top: 1px solid rgba(255,255,255,0.12); padding-top: 2.5rem; text-align: center; }
+        .footer-rsvp-names { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 1rem; line-height: 2; color: rgba(255,255,255,0.8); }
+
+        /* ============================================================
+           MODAL
+        ============================================================ */
+        #rsvp-modal {
+            position: fixed; inset: 0; background: rgba(30,10,5,0.65);
+            backdrop-filter: blur(10px); z-index: 9000;
+            display: none; align-items: center; justify-content: center; padding: 1.5rem;
+        }
+        #rsvp-modal.open { display: flex; }
+        .modal-card {
+            background: var(--white); border-radius: 1.5rem; max-width: 360px; width: 100%;
+            padding: 2.5rem 2rem 2rem; text-align: center; position: relative;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+            animation: modalIn 0.4s cubic-bezier(0.16,1,0.3,1) both;
+        }
+        @keyframes modalIn {
+            from { opacity:0;transform:scale(0.9) translateY(20px); }
+            to { opacity:1;transform:scale(1) translateY(0); }
+        }
+        .modal-icon-ring { width:72px;height:72px;border-radius:50%;background:rgba(184,89,64,0.1);display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem; }
+        .modal-icon-ring svg { width:32px;color:var(--terracotta); }
+        .modal-title { font-family:'Great Vibes',cursive;font-weight:normal;font-size:3rem;color:var(--terracotta);margin-bottom:0.5rem; }
+        .modal-msg { font-style:italic;font-weight:300;color:var(--text-light);font-size:1rem;line-height:1.6;margin-bottom:1.75rem; }
+        .modal-close-btn {
+            background:var(--terracotta);color:white;border:none;border-radius:9999px;padding:0.85rem 2.5rem;
+            font-family:'Tenor Sans',sans-serif;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;cursor:pointer;transition:all 0.2s ease;width:100%;
+        }
+        .modal-close-btn:hover { background:var(--terra-dark); }
+
+        .text-center { text-align: center; }
+        .mt-2 { margin-top: 0.5rem; }
+        .mt-4 { margin-top: 1rem; }
+        .mt-6 { margin-top: 1.5rem; }
+        .mt-8 { margin-top: 2rem; }
+        .mb-4 { margin-bottom: 1rem; }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .spin { animation: spin 1s linear infinite; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .fade-in { animation: fadeIn 0.8s ease both; }
+    </style>
+</head>
+
+<body>
+    <canvas id="petals-canvas"></canvas>
+
+    <audio id="bg-audio" loop preload="none">
+        <source src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/Ashish%20%26%20Ayushi/Jashn-E-Bahaaraa%20(Instrumental%20-%20Flute)%20%5B-2w18bd-ZQ4%5D.mp3" type="audio/mpeg">
+    </audio>
+
+    <button id="audio-btn" title="Toggle music" aria-label="Toggle background music">
+        <svg id="icon-on" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M11 5L6 9H2v6h4l5 4V5zM19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07" />
+        </svg>
+        <svg id="icon-off" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" style="display:none">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M11 5L6 9H2v6h4l5 4V5zM23 9l-6 6M17 9l6 6" />
+        </svg>
+    </button>
+
+    <div id="entry-gate">
+        <video id="entry-video" playsinline preload="metadata" muted>
+            <source src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/April/Sowmya%20%26%20Shahank/Entry%20Video%20Best%20Wedding%20Invite%20(29).mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div id="main-content">
+
+        <section id="hero">
+            <video id="hero-bg-video" autoplay loop muted playsinline preload="metadata">
+                <source src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/common-assets/Background.mp4" type="video/mp4">
+            </video>
+
+            <div class="hero-frame"><span></span></div>
+
+            <div class="hero-card">
+                <div class="card-corner tl"></div><div class="card-corner tr"></div>
+                <div class="card-corner bl"></div><div class="card-corner br"></div>
+
+                <img class="ganesh-icon"
+                     src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/Shriya%20%26%20Ashutosh/Vianyak%20png.png"
+                     alt="Shri Ganesh"
+                     width="120" height="60"
+                     decoding="async">
+
+                <p style="font-family:'Tenor Sans',sans-serif;font-size:0.62rem;letter-spacing:0.3em;color:var(--terracotta);text-transform:uppercase;margin-bottom:1.25rem;">
+                    ॥ श्री गणेशाय नमः ॥
+                </p>
+
+                <p class="blessings-text">
+                    Mrs. Shelly & Mr. Kuldeep Garg request the pleasure of your gracious presence<br>
+                    on the auspicious occasion of the Wedding Ceremony of their beloved daughter
+                </p>
+
+                <div class="couple-block">
+                    <span class="couple-name shimmer-gold">Dr. Anchal</span>
+                    <p class="family-line">Daughter of<br>Mrs. Shelly & Mr. Kuldeep Garg</p>
+                </div>
+
+                <div class="ampersand-wrap">
+                    <div class="ampersand-line"></div>
+                    <span class="ampersand">&</span>
+                    <div class="ampersand-line"></div>
+                </div>
+
+                <div class="couple-block">
+                    <span class="couple-name shimmer-gold">Dr. Tarun</span>
+                    <p class="family-line">Son of<br>Mrs. Shashi & Mr. Vijay Mittal</p>
+                </div>
+            </div>
+
+            <div class="scroll-cue">
+                <p>Scroll</p>
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+            </div>
+        </section>
+
+        <section id="gallery-section">
+            <div class="gallery-sticky">
+                <div class="gallery-viewport" id="gallery-viewport">
+
+                    <div class="gallery-hero-text" id="gallery-hero-text">
+                        <span class="gallery-hero-label">A Story of Love</span>
+                        <span class="gallery-hero-name">Anchal & Tarun</span>
+                    </div>
+
+                    <div class="gallery-card" id="gc-0" data-label="Our Journey Together">
+                        <img class="lazy-image"
+                             data-src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/June/anchal%20and%20tarun%20-8th%20july/photos/WhatsApp%20Image%202026-06-24%20at%2013.46.10%20(2).jpeg"
+                             src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E"
+                             alt="Anchal & Tarun" width="420" height="560" decoding="async">
+                        <div class="gallery-card-overlay"><span class="gallery-card-label">Our Journey Together</span></div>
+                    </div>
+                    <div class="gallery-card" id="gc-1" data-label="The Proposal">
+                        <img class="lazy-image"
+                             data-src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/June/anchal%20and%20tarun%20-8th%20july/photos/WhatsApp%20Image%202026-06-24%20at%2013.46.10.jpeg"
+                             src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E"
+                             alt="Anchal & Tarun" width="320" height="480" decoding="async">
+                        <div class="gallery-card-overlay"><span class="gallery-card-label">The Proposal</span></div>
+                    </div>
+                    <div class="gallery-card" id="gc-2" data-label="Golden Moments">
+                        <img class="lazy-image"
+                             data-src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/June/anchal%20and%20tarun%20-8th%20july/photos/WhatsApp%20Image%202026-06-24%20at%2013.46.11%20(1).jpeg"
+                             src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E"
+                             alt="Anchal & Tarun" width="280" height="360" decoding="async">
+                        <div class="gallery-card-overlay"><span class="gallery-card-label">Golden Moments</span></div>
+                    </div>
+                    <div class="gallery-card" id="gc-3" data-label="Forever Begins">
+                        <img class="lazy-image"
+                             data-src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/June/anchal%20and%20tarun%20-8th%20july/photos/WhatsApp%20Image%202026-06-24%20at%2013.46.11%20(2).jpeg"
+                             src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E"
+                             alt="Anchal & Tarun" width="300" height="320" decoding="async">
+                        <div class="gallery-card-overlay"><span class="gallery-card-label">Forever Begins</span></div>
+                    </div>
+                    <div class="gallery-card" id="gc-4" data-label="Eternal Love">
+                        <img class="lazy-image"
+                             data-src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/June/anchal%20and%20tarun%20-8th%20july/photos/WhatsApp%20Image%202026-06-24%20at%2013.46.11.jpeg"
+                             src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E"
+                             alt="Anchal & Tarun" width="360" height="500" decoding="async">
+                        <div class="gallery-card-overlay"><span class="gallery-card-label">Eternal Love</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-lightbox" id="gallery-lightbox" style="display:none;">
+                <div class="gallery-lightbox-inner" id="gallery-lightbox-inner">
+                    <button class="gallery-lightbox-close" id="gallery-lightbox-close">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                    <img id="gallery-lightbox-img" src="" alt="">
+                </div>
+            </div>
+        </section>
+
+        <div id="love-story-section">
+            <div class="ls-sticky">
+                <h2 class="ls-heading">Our love story</h2>
+                <div class="ls-stack" id="ls-stack">
+                    <div class="ls-card" id="ls-c0">
+                        <img class="lazy-image"
+                             data-src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/June/anchal%20and%20tarun%20-8th%20july/photos/WhatsApp%20Image%202026-06-24%20at%2013.46.12%20(1).jpeg"
+                             src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E"
+                             alt="Anchal & Tarun" width="300" height="330" decoding="async">
+                        <span class="ls-card-caption">Our first photo together</span>
+                    </div>
+                    <div class="ls-card" id="ls-c1">
+                        <img class="lazy-image"
+                             data-src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/June/anchal%20and%20tarun%20-8th%20july/photos/WhatsApp%20Image%202026-06-24%20at%2013.46.12%20(2).jpeg"
+                             src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E"
+                             alt="Anchal & Tarun" width="300" height="330" decoding="async">
+                        <span class="ls-card-caption">A secret getaway</span>
+                    </div>
+                    <div class="ls-card" id="ls-c2">
+                        <img class="lazy-image"
+                             data-src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/June/anchal%20and%20tarun%20-8th%20july/photos/WhatsApp%20Image%202026-06-24%20at%2013.46.12%20(3).jpeg"
+                             src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E"
+                             alt="Anchal & Tarun" width="300" height="330" decoding="async">
+                        <span class="ls-card-caption">Our first trip together</span>
+                    </div>
+                    <div class="ls-card" id="ls-c3">
+                        <img class="lazy-image"
+                             data-src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/June/anchal%20and%20tarun%20-8th%20july/photos/WhatsApp%20Image%202026-06-24%20at%2013.46.12.jpeg"
+                             src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E"
+                             alt="Anchal & Tarun" width="300" height="330" decoding="async">
+                        <span class="ls-card-caption">Start of forever</span>
+                    </div>
+                    <div class="ls-card" id="ls-c4">
+                        <img class="lazy-image"
+                             data-src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/June/anchal%20and%20tarun%20-8th%20july/photos/WhatsApp%20Image%202026-06-24%20at%2013.46.13.jpeg"
+                             src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E"
+                             alt="Anchal & Tarun" width="300" height="330" decoding="async">
+                        <span class="ls-card-caption">Where she said yes</span>
+                    </div>
+                </div>
+
+                <div class="ls-dots" id="ls-dots">
+                    <div class="ls-dot"></div><div class="ls-dot"></div><div class="ls-dot"></div><div class="ls-dot"></div><div class="ls-dot"></div>
+                </div>
+            </div>
+
+            <div class="ls-spacer"></div><div class="ls-spacer"></div><div class="ls-spacer"></div><div class="ls-spacer"></div><div class="ls-spacer"></div><div class="ls-spacer"></div>
+        </div>
+
+        <section id="countdown-section">
+            <div class="countdown-card reveal">
+                <span class="section-label">The Big Day</span>
+                <p class="countdown-quote">The start of a beautiful journey, shared with the ones we love most</p>
+                <p class="countdown-date">8th July</p>
+                <div class="countdown-grid">
+                    <div class="countdown-unit"><span class="countdown-number" id="cd-days">00</span><span class="countdown-label">Days</span></div>
+                    <div class="countdown-unit"><span class="countdown-number" id="cd-hours">00</span><span class="countdown-label">Hours</span></div>
+                    <div class="countdown-unit"><span class="countdown-number" id="cd-mins">00</span><span class="countdown-label">Mins</span></div>
+                    <div class="countdown-unit"><span class="countdown-number" id="cd-secs">00</span><span class="countdown-label">Secs</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="venue-section">
+            <div class="text-center reveal">
+                <span class="section-label">Where Love Awaits</span>
+                <h2 class="section-heading" style="color:var(--terracotta)">Our Cherished<br>Venue</h2>
+                <div class="ornament mt-4 mb-8">
+                    <div class="ornament-line rev"></div>
+                    <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24" style="color:var(--gold)"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+                    <div class="ornament-line"></div>
+                </div>
+            </div>
+
+            <div class="venue-card reveal reveal-delay-2">
+                <img class="venue-img lazy-image"
+                     data-src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/June/anchal%20and%20tarun%20-8th%20july/photos/unnamed%20(2).webp"
+                     src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E"
+                     alt="Noura Kakrali" width="560" height="220" decoding="async">
+                <div class="venue-info text-center">
+                    <h3 class="venue-name">Noura Kakrali</h3>
+                    <p class="venue-address">Chandigarh</p>
+                    <iframe class="venue-map"
+                            data-src="https://maps.google.com/maps?q=Noura+Kakrali,+Chandigarh&output=embed"
+                            allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                            title="Venue Map"></iframe>
+                    <br>
+                    <a class="directions-btn" href="https://maps.app.goo.gl/6LjUSMkCWtvh9wJn6" target="_blank" rel="noopener">Get Directions</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="events-section">
+            <div class="text-center reveal" style="margin-bottom:3rem;">
+                <span class="section-label">The Celebration Unfolds</span>
+                <h2 class="section-heading" style="color:var(--terracotta)">Seven Sacred<br>Ceremonies</h2>
+                <div class="ornament mt-4">
+                    <div class="ornament-line rev"></div>
+                    <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24" style="color:var(--gold)"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+                    <div class="ornament-line"></div>
+                </div>
+            </div>
+
+            <div class="event-block reveal">
+                <div class="text-center mb-4">
+                    <p class="event-subtitle">HALDI</p>
+                    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--text-mid);font-size:1rem;margin-top:0.5rem;">Sunday, 5th July · 5:15 PM</p>
+                </div>
+                <div class="event-video-wrap">
+                    <video class="lazy-video" muted loop playsinline preload="none" autoplay>
+                        <source data-src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/April/Sowmya%20%26%20Shahank/183.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="event-info-card">
+                    <p class="event-info-quote">Let the haldi glow begin!</p>
+                    <p class="event-dress-label">Dress Code</p>
+                    <div class="event-color-swatches">
+                        <div class="event-color-swatch">
+                            <span class="event-color-dot" style="background:#C8A2C8;"></span>
+                            <span>Lavender</span>
+                        </div>
+                    </div>
+                    <p class="event-color-names">Lavender</p>
+                    <p class="event-dress-desc">Festive Indian wear</p>
+                    <hr class="event-info-divider">
+                    <p class="event-venue-name">1-G-26 Jawahar Nagar, Sri Ganganagar</p>
+                    <a class="event-directions-btn" href="https://maps.app.goo.gl/orxDefBGaqpiZSwx9" target="_blank" rel="noopener">
+                        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 11.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 22s7-4.5 7-11a7 7 0 10-14 0c0 6.5 7 11 7 11z"/></svg>
+                        Get Directions
+                    </a>
+                </div>
+            </div>
+            <div class="event-sep reveal"><div class="event-sep-line"></div><div class="event-sep-dot"></div><div class="event-sep-line"></div></div>
+
+            <div class="event-block reveal">
+                <div class="text-center mb-4">
+                    <p class="event-subtitle">BAAN</p>
+                    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--text-mid);font-size:1rem;margin-top:0.5rem;">Monday, 6th July · 10:15 AM</p>
+                </div>
+                <div class="event-video-wrap">
+                    <video class="lazy-video" muted loop playsinline preload="none" autoplay>
+                        <source data-src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/April/Sowmya%20%26%20Shahank/184.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="event-info-card">
+                    <p class="event-info-quote">Sacred threads, sacred vows.</p>
+                    <p class="event-dress-label">Dress Code</p>
+                    <div class="event-color-swatches">
+                        <div class="event-color-swatch">
+                            <span class="event-color-dot" style="background:#E8B4B8;"></span>
+                            <span>Rose</span>
+                        </div>
+                        <div class="event-color-swatch">
+                            <span class="event-color-dot" style="background:#5C2233;"></span>
+                            <span>Maroon</span>
+                        </div>
+                        <div class="event-color-swatch">
+                            <span class="event-color-dot" style="background:#C9963E;"></span>
+                            <span>Gold</span>
+                        </div>
+                    </div>
+                    <p class="event-color-names">Rose · Maroon · Gold</p>
+                    <p class="event-dress-desc">Festive Indian wear</p>
+                    <hr class="event-info-divider">
+                    <p class="event-venue-name">K.L.M. Hotel and Resort</p>
+                    <a class="event-directions-btn" href="https://maps.app.goo.gl/MC9eLkWUsKAUCY9X6" target="_blank" rel="noopener">
+                        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 11.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 22s7-4.5 7-11a7 7 0 10-14 0c0 6.5 7 11 7 11z"/></svg>
+                        Get Directions
+                    </a>
+                </div>
+            </div>
+            <div class="event-sep reveal"><div class="event-sep-line"></div><div class="event-sep-dot"></div><div class="event-sep-line"></div></div>
+
+            <div class="event-block reveal">
+                <div class="text-center mb-4">
+                    <p class="event-subtitle">BHAT</p>
+                    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--text-mid);font-size:1rem;margin-top:0.5rem;">Monday, 6th July · 4:15 PM</p>
+                </div>
+                <div class="event-video-wrap">
+                    <video class="lazy-video" muted loop playsinline preload="none" autoplay>
+                        <source data-src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/April/Sowmya%20%26%20Shahank/185.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="event-info-card">
+                    <p class="event-info-quote">Blessings from home, love for the road.</p>
+                    <p class="event-dress-label">Dress Code</p>
+                    <div class="event-color-swatches">
+                        <div class="event-color-swatch">
+                            <span class="event-color-dot" style="background:#E8B4B8;"></span>
+                            <span>Rose</span>
+                        </div>
+                        <div class="event-color-swatch">
+                            <span class="event-color-dot" style="background:#5C2233;"></span>
+                            <span>Maroon</span>
+                        </div>
+                        <div class="event-color-swatch">
+                            <span class="event-color-dot" style="background:#C9963E;"></span>
+                            <span>Gold</span>
+                        </div>
+                    </div>
+                    <p class="event-color-names">Rose · Maroon · Gold</p>
+                    <p class="event-dress-desc">Festive Indian wear</p>
+                    <hr class="event-info-divider">
+                    <p class="event-venue-name">K.L.M. Hotel and Resort</p>
+                    <a class="event-directions-btn" href="https://maps.app.goo.gl/MC9eLkWUsKAUCY9X6" target="_blank" rel="noopener">
+                        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 11.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 22s7-4.5 7-11a7 7 0 10-14 0c0 6.5 7 11 7 11z"/></svg>
+                        Get Directions
+                    </a>
+                </div>
+            </div>
+            <div class="event-sep reveal"><div class="event-sep-line"></div><div class="event-sep-dot"></div><div class="event-sep-line"></div></div>
+
+            <div class="event-block reveal">
+                <div class="text-center mb-4">
+                    <p class="event-subtitle">COCKTAIL</p>
+                    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--text-mid);font-size:1rem;margin-top:0.5rem;">Monday, 6th July · 9:00 PM</p>
+                </div>
+                <div class="event-video-wrap">
+                    <video class="lazy-video" muted loop playsinline preload="none" autoplay>
+                        <source data-src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/April/Sowmya%20%26%20Shahank/186.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="event-info-card">
+                    <p class="event-info-quote">Sip, sway, and celebrate!</p>
+                    <p class="event-dress-label">Dress Code</p>
+                    <div class="event-color-swatches">
+                        <div class="event-color-swatch">
+                            <span class="event-color-dot" style="background:#1A1A1A;"></span>
+                            <span>Black</span>
+                        </div>
+                    </div>
+                    <p class="event-color-names">Black</p>
+                    <p class="event-dress-desc">Formal evening wear</p>
+                    <hr class="event-info-divider">
+                    <p class="event-venue-name">K.L.M. Hotel and Resort</p>
+                    <a class="event-directions-btn" href="https://maps.app.goo.gl/MC9eLkWUsKAUCY9X6" target="_blank" rel="noopener">
+                        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 11.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 22s7-4.5 7-11a7 7 0 10-14 0c0 6.5 7 11 7 11z"/></svg>
+                        Get Directions
+                    </a>
+                </div>
+            </div>
+            <div class="event-sep reveal"><div class="event-sep-line"></div><div class="event-sep-dot"></div><div class="event-sep-line"></div></div>
+
+            <div class="event-block reveal">
+                <div class="text-center mb-4">
+                    <p class="event-subtitle">SANGEET</p>
+                    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--text-mid);font-size:1rem;margin-top:0.5rem;">Tuesday, 7th July · 7:00 PM Onwards</p>
+                </div>
+                <div class="event-video-wrap">
+                    <video class="lazy-video" muted loop playsinline preload="none" autoplay>
+                        <source data-src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/April/Sowmya%20%26%20Shahank/Event%20-%20BWI%20(17).mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="event-info-card">
+                    <p class="event-info-quote">Get ready to shake a leg and sing your heart out!</p>
+                    <p class="event-dress-label">Dress Code</p>
+                    <div class="event-color-swatches">
+                        <div class="event-color-swatch">
+                            <span class="event-color-dot" style="background:#E8B4B8;"></span>
+                            <span>Rose</span>
+                        </div>
+                        <div class="event-color-swatch">
+                            <span class="event-color-dot" style="background:#5C2233;"></span>
+                            <span>Maroon</span>
+                        </div>
+                        <div class="event-color-swatch">
+                            <span class="event-color-dot" style="background:#C9963E;"></span>
+                            <span>Gold</span>
+                        </div>
+                    </div>
+                    <p class="event-color-names">Rose · Maroon · Gold</p>
+                    <p class="event-dress-desc">Festive Indian wear</p>
+                    <hr class="event-info-divider">
+                    <p class="event-venue-name">The Palace Kakrali, Chandigarh</p>
+                    <a class="event-directions-btn" href="https://maps.app.goo.gl/qa5TvtKq6QAn43DN7" target="_blank" rel="noopener">
+                        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 11.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 22s7-4.5 7-11a7 7 0 10-14 0c0 6.5 7 11 7 11z"/></svg>
+                        Get Directions
+                    </a>
+                </div>
+            </div>
+            <div class="event-sep reveal"><div class="event-sep-line"></div><div class="event-sep-dot"></div><div class="event-sep-line"></div></div>
+
+            <div class="event-block reveal">
+                <div class="text-center mb-4">
+                    <p class="event-subtitle">CARNIVAL</p>
+                    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--text-mid);font-size:1rem;margin-top:0.5rem;">Wednesday, 8th July · 11:00 AM Onwards</p>
+                </div>
+                <div class="event-video-wrap">
+                    <video class="lazy-video" muted loop playsinline preload="none" autoplay>
+                        <source data-src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/April/Sowmya%20%26%20Shahank/%40nd/Event%20-%20BWI%20(19).mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="event-info-card">
+                    <p class="event-info-quote">A celebration of love, life &amp; togetherness!</p>
+                    <p class="event-dress-label">Dress Code</p>
+                    <div class="event-color-swatches">
+                        <div class="event-color-swatch">
+                            <span class="event-color-dot" style="background:#E8B4B8;"></span>
+                            <span>Rose</span>
+                        </div>
+                        <div class="event-color-swatch">
+                            <span class="event-color-dot" style="background:#5C2233;"></span>
+                            <span>Maroon</span>
+                        </div>
+                        <div class="event-color-swatch">
+                            <span class="event-color-dot" style="background:#C9963E;"></span>
+                            <span>Gold</span>
+                        </div>
+                    </div>
+                    <p class="event-color-names">Rose · Maroon · Gold</p>
+                    <p class="event-dress-desc">Festive Indian wear</p>
+                    <hr class="event-info-divider">
+                    <p class="event-venue-name">Ziva, Pool Side</p>
+                    <a class="event-directions-btn" href="https://www.google.com/maps/search/Ziva+Pool+Side+Chandigarh/@30.7280804,76.6520507,11z" target="_blank" rel="noopener">
+                        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 11.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 22s7-4.5 7-11a7 7 0 10-14 0c0 6.5 7 11 7 11z"/></svg>
+                        Get Directions
+                    </a>
+                </div>
+            </div>
+            <div class="event-sep reveal"><div class="event-sep-line"></div><div class="event-sep-dot"></div><div class="event-sep-line"></div></div>
+
+            <div class="event-block reveal">
+                <div class="text-center mb-4">
+                    <p class="event-subtitle">WEDDING CEREMONY</p>
+                    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--text-mid);font-size:0.9rem;margin-top:0.35rem;">Reception of Baraat</p>
+                    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--text-mid);font-size:1rem;margin-top:0.5rem;">Wednesday, 8th July · 8:00 PM</p>
+                </div>
+                <div class="event-video-wrap">
+                    <video class="lazy-video" muted loop playsinline preload="none" autoplay>
+                        <source data-src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/April/Sowmya%20%26%20Shahank/Event%20-%20BWI%20(17).mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="event-info-card">
+                    <p class="event-info-quote">Two hearts, one forever.</p>
+                    <p class="event-dress-label">Dress Code</p>
+                    <div class="event-color-swatches">
+                        <div class="event-color-swatch">
+                            <span class="event-color-dot" style="background:#E8B4B8;"></span>
+                            <span>Rose</span>
+                        </div>
+                        <div class="event-color-swatch">
+                            <span class="event-color-dot" style="background:#5C2233;"></span>
+                            <span>Maroon</span>
+                        </div>
+                        <div class="event-color-swatch">
+                            <span class="event-color-dot" style="background:#C9963E;"></span>
+                            <span>Gold</span>
+                        </div>
+                    </div>
+                    <p class="event-color-names">Rose · Maroon · Gold</p>
+                    <p class="event-dress-desc">Festive Indian wear</p>
+                    <hr class="event-info-divider">
+                    <p class="event-venue-name">Noura Kakrali, Chandigarh</p>
+                    <a class="event-directions-btn" href="https://maps.app.goo.gl/6LjUSMkCWtvh9wJn6" target="_blank" rel="noopener">
+                        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 11.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 22s7-4.5 7-11a7 7 0 10-14 0c0 6.5 7 11 7 11z"/></svg>
+                        Get Directions
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="rsvp-section">
+            <div class="text-center reveal">
+                <span class="section-label">Join the Celebration</span>
+                <h2 class="section-heading" style="color:var(--terracotta)">Celebrate<br>With Us</h2>
+                <p class="reveal reveal-delay-2 mt-4" style="font-style:italic;color:var(--text-light);font-size:1.1rem;margin-bottom:2.5rem;">
+                    A few fun questions before the big day!
+                </p>
+            </div>
+
+            <form id="rsvp-form" class="rsvp-form">
+                <div class="form-card reveal">
+                    <p class="form-card-title">Guest Details</p>
+                    <div class="field-group">
+                        <label class="field-label" for="f-name">Your Name</label>
+                        <input class="field-input" type="text" id="f-name" name="name" required placeholder="Full name">
+                    </div>
+                    <div class="field-group" style="margin-bottom:0;">
+                        <label class="field-label" for="f-phone">Phone Number</label>
+                        <input class="field-input" type="tel" id="f-phone" name="phone" required placeholder="+91 00000 00000">
+                    </div>
+                </div>
+
+                <div class="form-card reveal reveal-delay-1">
+                    <p class="form-card-title">Will you join us?</p>
+                    <div class="radio-pill-row">
+                        <label class="radio-pill"><input type="radio" name="attending" value="yes" checked> Joyfully Accept 🎉</label>
+                        <label class="radio-pill"><input type="radio" name="attending" value="no"> Regrettably Decline</label>
+                    </div>
+                </div>
+
+                <div class="form-card reveal reveal-delay-1" id="guests-card">
+                    <p class="form-card-title">Party Size</p>
+                    <p class="form-card-subtitle">Including yourself, how many guests?</p>
+                    <div class="field-group" style="margin-bottom:0;">
+                        <select class="field-input" name="guest_count" required>
+                            <option value="1">1 (Just me)</option>
+                            <option value="2">2 Guests</option>
+                            <option value="3">3 Guests</option>
+                            <option value="4">4 Guests</option>
+                            <option value="5">5 Guests</option>
+                            <option value="6+">6+ Guests</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-card reveal reveal-delay-1" id="events-card">
+                    <p class="form-card-title">Events You'll Attend</p>
+                    <p class="form-card-subtitle">Select the days you will be joining us</p>
+                    <div class="checkbox-row">
+                        <label class="checkbox-pill">
+                            <div><span>Haldi</span><small class="checkbox-date">5th July · 5:15 PM</small></div>
+                            <input type="checkbox" name="attending_events" value="Haldi - 5th July">
+                        </label>
+                        <label class="checkbox-pill">
+                            <div><span>Baan</span><small class="checkbox-date">6th July · 10:15 AM</small></div>
+                            <input type="checkbox" name="attending_events" value="Baan - 6th July">
+                        </label>
+                        <label class="checkbox-pill">
+                            <div><span>Bhat</span><small class="checkbox-date">6th July · 4:15 PM</small></div>
+                            <input type="checkbox" name="attending_events" value="Bhat - 6th July">
+                        </label>
+                        <label class="checkbox-pill">
+                            <div><span>Cocktail</span><small class="checkbox-date">6th July · 9:00 PM</small></div>
+                            <input type="checkbox" name="attending_events" value="Cocktail - 6th July">
+                        </label>
+                        <label class="checkbox-pill">
+                            <div><span>Sangeet</span><small class="checkbox-date">7th July · 7:00 PM</small></div>
+                            <input type="checkbox" name="attending_events" value="Sangeet - 7th July">
+                        </label>
+                        <label class="checkbox-pill">
+                            <div><span>Carnival</span><small class="checkbox-date">8th July · 11:00 AM</small></div>
+                            <input type="checkbox" name="attending_events" value="Carnival - 8th July">
+                        </label>
+                        <label class="checkbox-pill">
+                            <div><span>Wedding Ceremony</span><small class="checkbox-date">8th July · 8:00 PM</small></div>
+                            <input type="checkbox" name="attending_events" value="Wedding Ceremony - 8th July">
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-card reveal reveal-delay-1" id="extra-cards">
+                    <p class="form-card-title">Make a Guess</p>
+                    <p class="form-card-subtitle">Who will get emotional first?</p>
+                    <div class="circle-select">
+                        <label class="circle-opt">
+                            <input type="radio" name="guess_emotional_first" value="Tarun">
+                            <div class="circle-face">T</div><span class="circle-opt-label">Tarun</span>
+                        </label>
+                        <label class="circle-opt">
+                            <input type="radio" name="guess_emotional_first" value="Anchal">
+                            <div class="circle-face">A</div><span class="circle-opt-label">Anchal</span>
+                        </label>
+                        <label class="circle-opt">
+                            <input type="radio" name="guess_emotional_first" value="Both">
+                            <div class="circle-face">B</div><span class="circle-opt-label">Both</span>
+                        </label>
+                    </div>
+                    <p style="text-align:center;font-size:0.85rem;color:var(--text-light);font-style:italic;margin-top:1rem;">Reveal after the wedding 😉</p>
+                </div>
+
+                <div class="form-card reveal reveal-delay-2" id="mood-card">
+                    <p class="form-card-title">Your Wedding Mood</p>
+                    <p class="form-card-subtitle">I'm coming for...</p>
+                    <div class="mood-grid">
+                        <label class="mood-opt"><input type="radio" name="wedding_mood" value="The Food"> The Food 🍛</label>
+                        <label class="mood-opt"><input type="radio" name="wedding_mood" value="The Dance Floor"> Dance Floor 💃</label>
+                        <label class="mood-opt"><input type="radio" name="wedding_mood" value="The Love"> The Love ❤️</label>
+                        <label class="mood-opt"><input type="radio" name="wedding_mood" value="All of It"> All of It ✨</label>
+                    </div>
+                </div>
+
+                <div class="form-card reveal reveal-delay-2">
+                    <p class="form-card-title">Leave Us a Note</p>
+                    <p class="form-card-subtitle">Share a wish or memory.</p>
+                    <textarea class="text-area" name="message" rows="3" placeholder="Write something from the heart..."></textarea>
+                    <p style="font-size:0.8rem;color:var(--text-light);font-style:italic;margin-top:0.6rem;">🔥 This becomes a digital memory book.</p>
+                </div>
+
+                <div class="form-card reveal reveal-delay-3">
+                    <p class="form-card-title">Words for Forever</p>
+                    <p class="form-card-subtitle">Advice for married life.</p>
+                    <textarea class="text-area" name="advice_for_forever" rows="3" placeholder="One piece of advice..."></textarea>
+                </div>
+
+                <div class="reveal reveal-delay-3" style="margin-top:2rem;">
+                    <button type="submit" class="submit-btn" id="submit-btn">
+                        <span id="btn-text">Send Love</span>
+                        <svg id="btn-spinner" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                             style="display:none;vertical-align:middle;margin-left:8px;" class="spin">
+                            <circle cx="12" cy="12" r="10" stroke-opacity="0.25"/>
+                            <path d="M12 2a10 10 0 0110 10" stroke-opacity="0.75"/>
+                        </svg>
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <section id="footer-section">
+            <div style="text-align:center;margin-bottom:3rem;" class="reveal">
+                <span style="font-family:'Great Vibes',cursive;font-size:4rem;color:var(--gold-light);display:block;line-height:1.1;">
+                    Anchal & Tarun
+                </span>
+                <div style="display:flex;align-items:center;justify-content:center;gap:1rem;margin-top:1rem;opacity:0.4;">
+                    <div style="height:1px;width:60px;background:var(--gold-light);"></div>
+                    <span style="color:var(--gold-light);font-size:1.1rem;">♥</span>
+                    <div style="height:1px;width:60px;background:var(--gold-light);"></div>
+                </div>
+            </div>
+
+            <div class="footer-grid">
+                <div class="reveal">
+                    <span class="footer-heading">With Compliments From</span>
+                    <ul class="footer-list">
+                        <li>Parkash Film Studio</li>
+                        <li>Sushil Garg</li>
+                        <li>Surinder Bansal</li>
+                        <li>Advocate Pankaj Singla</li>
+                        <li>Ankit Garg &amp; Garg Family</li>
+                    </ul>
+                </div>
+                <div class="reveal">
+                    <span class="footer-heading">RSVP</span>
+                    <ul class="footer-list">
+                        <li><a href="tel:+917009958486" style="color:inherit;text-decoration:none;">70099-58486</a> · Ankit Garg</li>
+                        <li><a href="tel:+919316917743" style="color:inherit;text-decoration:none;">93169-17743</a> · Kuldeep Garg</li>
+                    </ul>
+                </div>
+                <div class="footer-endnote reveal">
+                    <div style="opacity:0.4;height:1px;width:120px;background:var(--gold-light);margin:0 auto 2rem;"></div>
+                    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.95rem;color:rgba(255,255,255,0.5);">
+                        July 5th - July 8th · Anchal & Tarun
+                    </p>
+                </div>
+            </div>
+            <br><br>
+            <a href="https://www.instagram.com/invitevibes_/" target="_blank" rel="noopener" class="insta-handle">
+                Made with <span style="color:var(--gold-light); font-size: 1rem;">♥</span> by Invite Vibes
+            </a>
+        </section>
+
+    </div><div id="rsvp-modal">
+        <div class="modal-card">
+            <div class="modal-icon-ring" id="modal-icon">
+                <svg id="modal-success-svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                </svg>
+                <svg id="modal-error-svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:none;color:#dc2626">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </div>
+            <h3 class="modal-title" id="modal-title">Thank You!</h3>
+            <p class="modal-msg" id="modal-msg">We can't wait to celebrate with you!</p>
+            <button class="modal-close-btn" id="modal-close">Close</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+    <script>
+    /* ================================================================
+       PERFORMANCE-OPTIMIZED SCRIPT BLOCK
+       All heavy initialisation is deferred until the entry gate is
+       dismissed, so the first paint and entry video feel instant.
+    ================================================================ */
+
+    /* ================================================================
+       1. PETALS — Canvas animation (lightweight, always-on)
+    ================================================================ */
+    (function initPetals() {
+        const canvas = document.getElementById('petals-canvas');
+        const ctx = canvas.getContext('2d');
+
+        function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+        resize();
+        window.addEventListener('resize', resize);
+
+        const COLORS = ['#D4806A','#E8C07A','#C9963E','#B85940','#EEDDD3','#F5E4C0'];
+        const COUNT  = window.innerWidth < 600 ? 28 : 52;
+        const petals = [];
+
+        class Petal {
+            constructor() { this.reset(true); }
+            reset(initial) {
+                this.x     = Math.random() * canvas.width;
+                this.y     = initial ? Math.random() * canvas.height * 2 - canvas.height : -20;
+                this.r     = 4 + Math.random() * 5;
+                this.vx    = (Math.random() - 0.5) * 0.8;
+                this.vy    = 0.6 + Math.random() * 1.2;
+                this.rot   = Math.random() * Math.PI * 2;
+                this.drot  = (Math.random() - 0.5) * 0.04;
+                this.color = COLORS[Math.floor(Math.random() * COLORS.length)];
+                this.alpha = 0.5 + Math.random() * 0.4;
+            }
+            update() {
+                this.x += this.vx + Math.sin(this.y * 0.01) * 0.4;
+                this.y += this.vy;
+                this.rot += this.drot;
+                if (this.y > canvas.height + 20) this.reset(false);
+            }
+            draw() {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.rot);
+                ctx.globalAlpha = this.alpha;
+                ctx.fillStyle   = this.color;
+                ctx.beginPath();
+                ctx.ellipse(0, 0, this.r * 0.55, this.r, 0, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        for (let i = 0; i < COUNT; i++) petals.push(new Petal());
+        (function loop() { ctx.clearRect(0,0,canvas.width,canvas.height); petals.forEach(p=>{p.update();p.draw();}); requestAnimationFrame(loop); })();
+    })();
+
+    /* ================================================================
+       2–4. SEQUENTIAL BACKGROUND PRELOADER
+       ----------------------------------------------------------------
+       Strategy: the moment the entry gate closes, load every asset
+       one-by-one in DOM (page) order. No scrolling required.
+
+       WHY sequential instead of parallel?
+         Mobile networks cap out at ~5–10 Mbps. Firing 15 requests at
+         once splits bandwidth 15 ways — everything arrives slowly.
+         Sequential dedicates full bandwidth to one asset at a time, so
+         the first few images/videos finish in seconds, not minutes.
+
+       WHY not IntersectionObserver?
+         On mobile, IO only fires when the element enters the viewport.
+         If the image hasn't loaded yet the user sees a white flash.
+         Sequential preloading fills the browser cache BEFORE the user
+         ever scrolls there, so it's always instant.
+
+       Order: images first (small, fast), then videos, then iframes.
+    ================================================================ */
+
+    function getAllLazyAssets() {
+        const assets = [];
+        // Collect in DOM order so page-top assets load first
+        document.querySelectorAll('img.lazy-image[data-src]').forEach(img => {
+            assets.push({ type: 'image', el: img });
+        });
+        document.querySelectorAll('video.lazy-video').forEach(video => {
+            const source = video.querySelector('source[data-src]');
+            if (source) assets.push({ type: 'video', el: video, source });
+        });
+        document.querySelectorAll('iframe[data-src]').forEach(iframe => {
+            assets.push({ type: 'iframe', el: iframe });
+        });
+        return assets;
+    }
+
+    function loadImageAsset(img) {
+        return new Promise(resolve => {
+            if (!img.dataset.src) return resolve();
+            img.onload  = () => { img.classList.add('loaded'); resolve(); };
+            img.onerror = () => { img.classList.add('loaded'); resolve(); };
+            img.src = img.dataset.src;
+            delete img.dataset.src;
+        });
+    }
+
+    function loadVideoAsset(video, source) {
+        return new Promise(resolve => {
+            if (!source.dataset.src) return resolve();
+            source.src = source.dataset.src;
+            delete source.dataset.src;
+            video.load();
+            if (video.hasAttribute('autoplay')) video.play().catch(() => {});
+            // Resolve on canplay or after 4s — don't block the queue on slow videos
+            const done = () => resolve();
+            video.addEventListener('canplay', done, { once: true });
+            setTimeout(done, 4000);
+        });
+    }
+
+    function loadIframeAsset(iframe) {
+        if (!iframe.dataset.src) return Promise.resolve();
+        iframe.src = iframe.dataset.src;
+        delete iframe.dataset.src;
+        return Promise.resolve();
+    }
+
+    async function runSequentialPreload() {
+        const assets = getAllLazyAssets();
+        for (const asset of assets) {
+            try {
+                if      (asset.type === 'image')  await loadImageAsset(asset.el);
+                else if (asset.type === 'video')  await loadVideoAsset(asset.el, asset.source);
+                else if (asset.type === 'iframe') await loadIframeAsset(asset.el);
+            } catch (_) { /* never let one failure block the rest */ }
+        }
+    }
+
+    // These are now no-ops — preloading is handled by runSequentialPreload()
+    function observeLazyImages()  {}
+    function observeLazyVideos()  {}
+    function observeLazyIframes() {}
+
+    /* ================================================================
+       5. ENTRY GATE LOGIC
+    ================================================================ */
+    const gate       = document.getElementById('entry-gate');
+    const entryVideo = document.getElementById('entry-video');
+    const bgAudio    = document.getElementById('bg-audio');
+    const mainEl     = document.getElementById('main-content');
+    const petalsCvs  = document.getElementById('petals-canvas');
+
+    // Show the first frame of the entry video as soon as metadata is available.
+    // This makes the gate feel instant — the poster frame appears without downloading the full video.
+    entryVideo.addEventListener('loadedmetadata', () => {
+        entryVideo.currentTime = 0.001;
+    });
+    // Fallback: if metadata fires after currentTime is already set, no-op — safe.
+
+    let audioPlaying = false;
+    let mainRevealed = false;
+
+    function revealMain() {
+        if (mainRevealed) return;
+        mainRevealed = true;
+        gate.classList.add('fade-out');
+        setTimeout(() => { gate.style.display = 'none'; }, 900);
+        mainEl.classList.add('visible', 'fade-in');
+        petalsCvs.classList.add('active');
+        document.body.style.overflow = 'auto';
+
+        // Now that main content is visible, boot all heavy features
+        initCountdown();
+        initReveal();
+        initEventAutoExpand();
+
+        // Kick off sequential background preload immediately — no scrolling needed
+        runSequentialPreload();
+
+        // GSAP may still be loading (deferred) — wait for it
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+            initGallery();
+            initLoveStory();
+            setTimeout(() => { ScrollTrigger.refresh(); }, 200);
+        } else {
+            // Poll until GSAP is ready
+            const gsapPoll = setInterval(() => {
+                if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+                    clearInterval(gsapPoll);
+                    initGallery();
+                    initLoveStory();
+                    setTimeout(() => { ScrollTrigger.refresh(); }, 200);
+                }
+            }, 100);
+        }
+    }
+
+    gate.addEventListener('click', async () => {
+        if (mainRevealed) return;
+        if (entryVideo.paused) {
+            try {
+                entryVideo.muted = false;
+                await entryVideo.play();
+                try { await bgAudio.play(); audioPlaying = true; updateAudioIcon(); } catch (_) {}
+            } catch (e) { console.warn('Video play blocked:', e); }
+        }
+    });
+
+    entryVideo.addEventListener('ended', revealMain);
+    entryVideo.addEventListener('error', () => { if (!mainRevealed) setTimeout(revealMain, 500); });
+
+    document.body.style.overflow = 'hidden';
+
+    /* ================================================================
+       6. AUDIO TOGGLE
+    ================================================================ */
+    const audioBtn = document.getElementById('audio-btn');
+    const iconOn   = document.getElementById('icon-on');
+    const iconOff  = document.getElementById('icon-off');
+
+    function updateAudioIcon() {
+        iconOn.style.display  = audioPlaying ? '' : 'none';
+        iconOff.style.display = audioPlaying ? 'none' : '';
+    }
+
+    /* Page Visibility API — pause when tab/window is hidden, resume when user comes back.
+       Only resumes if audio was actually playing before the user switched away. */
+    document.addEventListener('visibilitychange', async () => {
+        if (document.hidden) {
+            if (audioPlaying) bgAudio.pause();
+        } else {
+            if (audioPlaying) {
+                try { await bgAudio.play(); } catch (_) {}
+            }
+        }
+    });
+
+    audioBtn.addEventListener('click', async (e) => {
+        e.stopPropagation();
+        if (audioPlaying) {
+            bgAudio.pause(); audioPlaying = false;
+        } else {
+            try { await bgAudio.play(); audioPlaying = true; } catch (err) { console.warn(err); }
+        }
+        updateAudioIcon();
+    });
+
+    /* ================================================================
+       7. COUNTDOWN TIMER
+    ================================================================ */
+    function initCountdown() {
+        const target = new Date('July 8, 2026 20:00:00 GMT+0530');
+        const grid   = document.querySelector('.countdown-grid');
+
+        function tick() {
+            const diff = target - Date.now();
+            if (diff <= 0) {
+                grid.innerHTML = "<p style='grid-column:1/-1;font-family:\"Great Vibes\",cursive;font-size:3rem;color:var(--terracotta);'>We're Married!</p>";
+                return;
+            }
+            const fmt = n => String(n).padStart(2,'0');
+            document.getElementById('cd-days').textContent  = fmt(Math.floor(diff / 86400000));
+            document.getElementById('cd-hours').textContent = fmt(Math.floor((diff % 86400000) / 3600000));
+            document.getElementById('cd-mins').textContent  = fmt(Math.floor((diff % 3600000) / 60000));
+            document.getElementById('cd-secs').textContent  = fmt(Math.floor((diff % 60000) / 1000));
+        }
+        tick();
+        setInterval(tick, 1000);
+    }
+
+    /* ================================================================
+       8. SCROLL REVEAL
+    ================================================================ */
+    function initReveal() {
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) { e.target.classList.add('revealed'); io.unobserve(e.target); }
+            });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    }
+
+    /* ================================================================
+       9. EVENT VIDEO AUTO-EXPAND
+    ================================================================ */
+    function initEventAutoExpand() {
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) { entry.target.classList.add('unlocked'); io.unobserve(entry.target); }
+            });
+        }, { threshold: 0.35 });
+        document.querySelectorAll('.event-video-wrap').forEach(w => io.observe(w));
+    }
+
+    /* ================================================================
+       10. RSVP FORM (UPDATED AND IMPROVED)
+    ================================================================ */
+    const rsvpForm   = document.getElementById('rsvp-form');
+    const submitBtn  = document.getElementById('submit-btn');
+    const btnText    = document.getElementById('btn-text');
+    const btnSpinner = document.getElementById('btn-spinner');
+    const extraCards = ['guests-card','events-card','extra-cards','mood-card'];
+
+    document.querySelectorAll('input[name="attending"]').forEach(r => {
+        r.addEventListener('change', () => {
+            const decline = r.value === 'no';
+            extraCards.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) { el.style.opacity = decline ? '0.4' : '1'; el.style.pointerEvents = decline ? 'none' : ''; }
+            });
+        });
+    });
+
+    rsvpForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        submitBtn.disabled = true;
+        btnText.textContent = 'Sending...';
+        btnSpinner.style.display = 'inline';
+
+        const formData = new FormData(e.target);
+        const data = {};
+        
+        // Extract values and properly join arrays into strings to prevent data loss or crashes
+        for (let key of formData.keys()) {
+            const values = formData.getAll(key);
+            data[key] = values.length > 1 ? values.join(', ') : values[0];
+        }
+        
+        // Cleanup the data if they are declining
+        if (data.attending === 'no') {
+            data.guest_count = "0";
+            data.attending_events = "None";
+        }
+
+        data.clientId = 'anchal-tarun5-wedding-2026';
+
+        try {
+            const res    = await fetch('https://api.invitevibes.in/api/rsvp', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data),
+            });
+            const result = await res.json();
+            
+            showModal(result.success ? 'success' : 'error');
+            
+            if (result.success) {
+                e.target.reset();
+                // Reset the UI styling in case they declined but submitted again
+                extraCards.forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) { el.style.opacity = '1'; el.style.pointerEvents = ''; }
+                });
+            }
+        } catch (err) {
+            console.error(err);
+            showModal('error');
+        } finally {
+            submitBtn.disabled = false;
+            btnText.textContent = 'Send Love';
+            btnSpinner.style.display = 'none';
+        }
+    });
+
+    /* ================================================================
+       11. MODAL
+    ================================================================ */
+    const modal      = document.getElementById('rsvp-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalMsg   = document.getElementById('modal-msg');
+    const modalSucc  = document.getElementById('modal-success-svg');
+    const modalErr   = document.getElementById('modal-error-svg');
+    const modalIcon  = document.getElementById('modal-icon');
+    const modalClose = document.getElementById('modal-close');
+
+    function showModal(type) {
+        if (type === 'success') {
+            modalTitle.textContent = 'Thank You!';
+            modalMsg.textContent   = "We can't wait to celebrate with you on our special day!";
+            modalSucc.style.display = ''; modalErr.style.display = 'none';
+            modalIcon.style.background = 'rgba(184,89,64,0.1)';
+        } else {
+            modalTitle.textContent = 'Oops!';
+            modalMsg.textContent   = 'There was an error submitting your RSVP. Please try again.';
+            modalSucc.style.display = 'none'; modalErr.style.display = '';
+            modalIcon.style.background = 'rgba(220,38,38,0.08)';
+        }
+        modal.classList.add('open');
+    }
+
+    function closeModal() { modal.classList.remove('open'); }
+    modalClose.addEventListener('click', closeModal);
+    modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+
+    /* ================================================================
+       12. GSAP PHOTO GALLERY — Scroll-driven cinematic reveal
+    ================================================================ */
+    function initGallery() {
+        gsap.registerPlugin(ScrollTrigger);
+
+        const section   = document.getElementById('gallery-section');
+        const heroText  = document.getElementById('gallery-hero-text');
+        const cards     = [0,1,2,3,4].map(i => document.getElementById('gc-' + i));
+        const lightbox  = document.getElementById('gallery-lightbox');
+        const lbImg     = document.getElementById('gallery-lightbox-img');
+        const lbClose   = document.getElementById('gallery-lightbox-close');
+
+        if (!section || !cards[0]) return;
+
+        const getTargets = () => {
+            const vw = window.innerWidth, vh = window.innerHeight;
+            const mob = vw < 768;
+            if (mob) return [
+                { x:0,      y:0,        w:vw*0.90, h:vh*0.30 },
+                { x:-vw*0.24,y:-vh*0.32,w:vw*0.42, h:vh*0.26 },
+                { x:vw*0.24, y:-vh*0.32,w:vw*0.42, h:vh*0.26 },
+                { x:-vw*0.24,y:vh*0.32, w:vw*0.42, h:vh*0.26 },
+                { x:vw*0.24, y:vh*0.32, w:vw*0.42, h:vh*0.26 },
+            ];
+            return [
+                { x:0,    y:0,    w:420, h:560 },
+                { x:-460, y:-260, w:320, h:480 },
+                { x:440,  y:-220, w:280, h:360 },
+                { x:-480, y:280,  w:300, h:320 },
+                { x:460,  y:300,  w:360, h:500 },
+            ];
+        };
+
+        function setStates() {
+            gsap.set(cards[0], {
+                width:'100%', height:'100%', xPercent:-50, yPercent:-50,
+                x:0, y:0, borderRadius:0, zIndex:15, opacity:1, position:'absolute'
+            });
+            const offX = window.innerWidth, offY = window.innerHeight;
+            const startPos = [
+                {x:-offX,y:-offY},{x:offX,y:-offY},{x:-offX,y:offY},{x:offX,y:offY}
+            ];
+            cards.forEach((card,i) => {
+                if (i===0) return;
+                gsap.set(card, {
+                    xPercent:-50, yPercent:-50, opacity:0, zIndex:10,
+                    width:200, height:280, borderRadius:'1rem', position:'absolute',
+                    x:startPos[i-1].x, y:startPos[i-1].y, rotation: i%2===0?20:-20
+                });
+            });
+        }
+
+        setStates();
+
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: section, start:'top top', end:'bottom bottom',
+                scrub: 1.5, invalidateOnRefresh: true
+            }
+        });
+
+        const targets = getTargets();
+        tl.to(cards[0], { width:targets[0].w, height:targets[0].h, x:targets[0].x, y:targets[0].y, borderRadius:'2.5rem', duration:7.5, ease:'power2.inOut' }, 0);
+        tl.to(heroText, { opacity:0, scale:0.8, y:-120, duration:4.5, ease:'power1.in' }, 0);
+        cards.forEach((card,i) => {
+            if (i===0) return;
+            tl.to(card, { x:targets[i].x, y:targets[i].y, width:targets[i].w, height:targets[i].h, opacity:1, rotation:0, duration:7, ease:'expo.out' }, 0.8 + i*0.45);
+        });
+
+        const galleryCloseLightbox = () => { lightbox.style.display='none'; document.body.style.overflow=''; };
+
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                const img = card.querySelector('img');
+                if (!img) return;
+                // Show the full-res src (which is now loaded via lazy loader)
+                lbImg.src = img.dataset.src || img.src;
+                lbImg.alt = img.alt;
+                lightbox.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        lbClose.addEventListener('click', galleryCloseLightbox);
+        lightbox.addEventListener('click', e => { if (e.target===lightbox) galleryCloseLightbox(); });
+        document.addEventListener('keydown', e => { if (e.key==='Escape') galleryCloseLightbox(); });
+    }
+
+    /* ================================================================
+       13. LOVE STORY — scroll-stacked polaroids
+    ================================================================ */
+    function initLoveStory() {
+        const section = document.getElementById('love-story-section');
+        const cards   = Array.from(document.querySelectorAll('.ls-card'));
+        const dots    = Array.from(document.querySelectorAll('.ls-dot'));
+        if (!section || !cards.length) return;
+
+        const total = cards.length;
+
+        function update() {
+            const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+            const vh         = window.innerHeight;
+            const scrolled   = window.scrollY - sectionTop;
+            const getThreshold = i => i===0 ? -vh*2 : (i-1)*(vh*0.75);
+
+            cards.forEach((card,i) => {
+                if (scrolled >= getThreshold(i)) {
+                    const depth = (total-1) - i;
+                    if (!card.classList.contains('visible')) {
+                        card.style.transitionDelay = '0s';
+                        card.classList.add('visible');
+                    }
+                    card.style.setProperty('--depth', depth);
+                    card.classList.add('stacked');
+                    card.style.zIndex = i+1;
+                } else {
+                    card.style.transitionDelay = '0s';
+                    card.classList.remove('visible','stacked');
+                    card.style.zIndex = i+1;
+                }
+            });
+
+            const active = cards.reduce((acc,card,i) => card.classList.contains('visible') ? i : acc, -1);
+            dots.forEach((dot,i) => dot.classList.toggle('active', i===active));
+        }
+
+        window.addEventListener('scroll', update, { passive: true });
+        update();
+    }
+    </script>
+</body>
+</html>
